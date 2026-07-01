@@ -45,7 +45,7 @@ export default function Header({ currentPage, setCurrentPage }) {
             {PROFILE.initials?.[0] || 'M'}
           </span>
           <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '1rem', color: 'var(--text-primary)', whiteSpace: 'nowrap' }}>
-            Mel's Portfolio
+            Melvin's Portfolio
           </span>
         </div>
 

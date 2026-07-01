@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { GraduationCap, Search, Award, ArrowRight } from 'lucide-react';
-import melvinPhoto from '../assets/melvinfoto.jpg';
+import melvinPhoto from '../assets/melvinfoto.jpeg';
 import { PROFILE, EDUCATION, CERTS, AWARDS, PARTICLES } from '../data/portfolioData';
 import { SKILL_TABS } from '../data/skillTabs';
 
@@ -101,8 +101,8 @@ export default function Home({ setCurrentPage }) {
                 aria-label={PROFILE.name}
                 style={{
                   backgroundImage: `url(${melvinPhoto})`,
-                  backgroundSize: '230%',
-                  backgroundPosition: 'center 12%',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat'
                 }}
               />
