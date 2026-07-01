@@ -51,7 +51,12 @@ export default function Activities({ setCurrentPage, setSelectedActivityId }) {
                   </div>
                 )}
                 <div style={{ position: 'absolute', top: '12px', left: '12px', zIndex: 2 }}>
-                  <span className="badge">{activity.period}</span>
+                  <span
+                    className="badge"
+                    style={{ background: 'rgba(11, 14, 20, 0.85)', backdropFilter: 'blur(4px)' }}
+                  >
+                    {activity.period}
+                  </span>
                 </div>
               </div>
 

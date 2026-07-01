@@ -95,7 +95,17 @@ export default function Home({ setCurrentPage }) {
           {/* Hero Right: Profile Picture with Halo */}
           <div className="hero-image-container">
             <div className="profile-image-wrapper">
-              <img src={melvinPhoto} alt={PROFILE.name} className="profile-image" />
+              <div
+                className="profile-image"
+                role="img"
+                aria-label={PROFILE.name}
+                style={{
+                  backgroundImage: `url(${melvinPhoto})`,
+                  backgroundSize: '230%',
+                  backgroundPosition: 'center 12%',
+                  backgroundRepeat: 'no-repeat'
+                }}
+              />
             </div>
           </div>
         </div>
