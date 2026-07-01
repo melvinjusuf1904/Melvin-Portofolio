@@ -3,6 +3,16 @@ import { ArrowLeft, ExternalLink, ImageIcon, CheckCircle2 } from 'lucide-react';
 import { Github } from '../components/SocialIcons';
 import { projectsData } from './Projects';
 
+// Menerima link YouTube dalam berbagai format (watch?v=, youtu.be/, embed/)
+// dan mengubahnya jadi URL embed yang valid untuk <iframe>.
+function getYouTubeEmbedUrl(url) {
+  if (!url) return null;
+  const match = url.match(
+    /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+  );
+  return match ? `https://www.youtube.com/embed/${match[1]}` : url;
+}
+
 export default function ProjectDetail({ currentPage, setCurrentPage, selectedProjectId }) {
   const project = projectsData.find((p) => p.id === selectedProjectId);
 
@@ -51,7 +61,18 @@ export default function ProjectDetail({ currentPage, setCurrentPage, selectedPro
 
         {/* Media */}
         <div className="glass-card" style={{ padding: '16px', marginBottom: '36px', overflow: 'hidden' }}>
-          {project.image ? (
+          {project.youtube ? (
+            <div style={{ borderRadius: '12px', overflow: 'hidden', aspectRatio: '16/9' }}>
+              <iframe
+                src={getYouTubeEmbedUrl(project.youtube)}
+                title={project.title}
+                style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+            </div>
+          ) : project.image ? (
             <div style={{ borderRadius: '12px', overflow: 'hidden', aspectRatio: '16/9' }}>
               <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>

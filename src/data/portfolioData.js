@@ -58,13 +58,13 @@ export const SKILL_TABS_RAW = {
 };
 
 export const CERTS = [
-  { name: "Microsoft Certified: Azure AI Fundamentals", issuer: "Microsoft", year: "2026" },
-  { name: "Belajar Dasar AI", issuer: "Dicoding Indonesia", year: "2026" },
-  { name: "Belajar Machine Learning untuk Pemula", issuer: "Dicoding Indonesia", year: "2026" },
-  { name: "Memulai Pemrograman dengan Python", issuer: "Dicoding Indonesia", year: "2026" },
-  { name: "Belajar Dasar Cloud dan Gen AI di AWS", issuer: "Dicoding Indonesia", year: "2026" },
-  { name: "Spec-Driven Development dengan Kiro", issuer: "Dicoding Indonesia", year: "2026" },
+  { name: "Learn Machine Learning for Beginners", issuer: "Dicoding Indonesia", year: "2026" },
+  { name: "Get Started with Programming using Python", issuer: "Dicoding Indonesia", year: "2026" },
+  { name: "Learn Cloud Basics and AI Gen on AWS", issuer: "Dicoding Indonesia", year: "2026" },
   { name: "Introduction to Financial Literacy", issuer: "Dicoding Indonesia", year: "2026" },
+  { name: "Spec-Driven Development with Kiro", issuer: "Dicoding Indonesia", year: "2026" },
+  { name: "Microsoft Certified: Azure AI Fundamentals", issuer: "Microsoft", year: "2026" },
+  { name: "Learn AI", issuer: "Dicoding Indonesia", year: "2026" },
 ];
 
 export const AWARDS = [
@@ -87,6 +87,8 @@ export const PROJECTS = [
     github: "",
     live: "",
     verified: false,
+    image: "",
+    youtube: "", // contoh: "https://www.youtube.com/watch?v=XXXXXXXXXXX" atau link youtu.be/embed
   },
   {
     id: 2,
@@ -100,6 +102,8 @@ export const PROJECTS = [
     github: "",
     live: "",
     verified: false,
+    image: "",
+    youtube: "", // contoh: "https://www.youtube.com/watch?v=XXXXXXXXXXX" atau link youtu.be/embed
   },
   {
     id: 3,
@@ -113,6 +117,8 @@ export const PROJECTS = [
     github: "",
     live: "",
     verified: false,
+    image: "",
+    youtube: "", // contoh: "https://www.youtube.com/watch?v=XXXXXXXXXXX" atau link youtu.be/embed
   },
 ];
 
@@ -126,7 +132,6 @@ export const ACTIVITIES = [
     images: [CCcert,CaseC1, CaseC2, CaseC3], // contoh: ["/images/foto1.jpg", "/images/foto2.jpg"] — kosongkan array untuk pakai placeholder
     points: [
       "Co-Developed a Comprehensive Business Strategy.", 
-      "Formulated Real-World Business Solutions.",
       "Collaborated to Conduct Market and Operational Analysis."
     ],
     notes:
@@ -151,7 +156,6 @@ export const ACTIVITIES = [
     images: [BOTCcert, Borneo, Rank], // contoh: ["/images/foto1.jpg", "/images/foto2.jpg"] — kosongkan array untuk pakai placeholder
     points: [
       "Secured 8th place in the national Borneo Online Trading Competition 2026, demonstrating strong trading skills and market analysis.", 
-      "Generated Competitive Trading Edge.",
       "Monitored JCI (IGHG) Market Dynamics and Issuer Price Actiobs."
     ],
     notes:
