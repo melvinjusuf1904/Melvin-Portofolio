@@ -1,8 +1,10 @@
 // ================= DATA (from LinkedIn) =================
 // Ubah semua data profil, edukasi, skill, sertifikat, penghargaan,
 // proyek, dan aktivitas kamu di file ini saja.
+import BOTCcert from "../assets/BOTCcert.jpeg";
 import Borneo from "../assets/borneo.jpeg";
 import Rank from "../assets/rank.jpeg";
+import CCcert from "../assets/CCcert.png";
 import CaseC1 from "../assets/caseconnect1.jpeg";
 import CaseC2 from "../assets/caseconnect2.jpeg";
 import CaseC3 from "../assets/caseconnect3.jpeg";
@@ -121,25 +123,24 @@ export const ACTIVITIES = [
     period: "Apr 2026 – May 2026",
     org: "Business Case Competition",
     role: "Participant / Finalist",
-    images: [CaseC1, CaseC2, CaseC3], // contoh: ["/images/foto1.jpg", "/images/foto2.jpg"] — kosongkan array untuk pakai placeholder
+    images: [CCcert,CaseC1, CaseC2, CaseC3], // contoh: ["/images/foto1.jpg", "/images/foto2.jpg"] — kosongkan array untuk pakai placeholder
     points: [
-      "Secured 8th place in the national Borneo Online Trading Competition 2026, demonstrating strong trading skills and market analysis.", 
-      "Generated Competitive Trading Edge",
-      "Monitored JCI (IGHG) Market Dynamics and Issuer Price Actiobs"
+      "Co-Developed a Comprehensive Business Strategy.", 
+      "Formulated Real-World Business Solutions.",
+      "Collaborated to Conduct Market and Operational Analysis."
     ],
     notes:
-      "Honored to be among the Top 10 Finalists of the borneo Online Trading Competition 2026!🚀" +
-      "A huge shoutout to my teammate @GarrethDavies (https://lnkd.in/ge3CxUCR), for the incredible collaboration and strategic" +
-      "alignment throughtout the trading period." +
-      "I am thrilled to share that my team, StockQueue, has secured the 8th position in this prestigious competition!" +
-      "One of the key drivers behind our performance was our strategic positioning in $BRPT (PT Barito Pasific Tbk), " +
-      "which we identified as the most solid issuer throughout this period.",
+      "Stepping into the Unknown: My First Business Case Experience at CaseConnect 2026!🚀" +
+      "They say growth begins at the end of your comfort zone, and this past week, I truly felt that." +
+      "Representing Team StockQueue, we dived deep into the challenges of the coffee industry. Our mission? To craft a strategic solution for Brewtique Indonesia." +
+      "We proposed a strategy centered on 'Premium, Digital, and Sustainability,' aiming to turn innovation into real impact in a highly competitive market." +
+      "Coming from a background where I usually analyze stock charts and market data, tackling a real-world business restructuring case" +
+      "was both challenging and eye-opening. It required a different kind of analytical thinking—one that balances strategic vision with operational reality.",
     focusAreas: [
-      "Strategic Stock Selection & Market Timing", 
-      "Advanced Technical Analysis",
-      "Market Psychology & Discliplined Execution",
-      "Strategic Collaboration & Teamwork",
-      "Capital Market Resilience & Growth"
+      "Strategic Business Restructing & Innovation.", 
+      "Cross-Disclipinary Analytical Thinking.",
+      "Market Competitive Strategy.",
+      "High-Performing Team Synergy."
     ],
   },
   {
@@ -147,11 +148,11 @@ export const ACTIVITIES = [
     period: "Apr 2026 – May 2026",
     org: "Borneo Online Trading Competition",
     role: "Participant / Top 10 Finalist",
-    images: [Borneo, Rank], // contoh: ["/images/foto1.jpg", "/images/foto2.jpg"] — kosongkan array untuk pakai placeholder
+    images: [BOTCcert, Borneo, Rank], // contoh: ["/images/foto1.jpg", "/images/foto2.jpg"] — kosongkan array untuk pakai placeholder
     points: [
       "Secured 8th place in the national Borneo Online Trading Competition 2026, demonstrating strong trading skills and market analysis.", 
-      "Generated Competitive Trading Edge",
-      "Monitored JCI (IGHG) Market Dynamics and Issuer Price Actiobs"
+      "Generated Competitive Trading Edge.",
+      "Monitored JCI (IGHG) Market Dynamics and Issuer Price Actiobs."
     ],
     notes:
       "Honored to be among the Top 10 Finalists of the borneo Online Trading Competition 2026!🚀" +
@@ -161,11 +162,11 @@ export const ACTIVITIES = [
       "One of the key drivers behind our performance was our strategic positioning in $BRPT (PT Barito Pasific Tbk), " +
       "which we identified as the most solid issuer throughout this period.",
     focusAreas: [
-      "Strategic Stock Selection & Market Timing", 
-      "Advanced Technical Analysis",
-      "Market Psychology & Discliplined Execution",
-      "Strategic Collaboration & Teamwork",
-      "Capital Market Resilience & Growth"
+      "Strategic Stock Selection & Market Timing.", 
+      "Advanced Technical Analysis.",
+      "Market Psychology & Discliplined Execution.",
+      "Strategic Collaboration & Teamwork.",
+      "Capital Market Resilience & Growth."
     ],
   },
 ];
