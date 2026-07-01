@@ -147,18 +147,37 @@ input::placeholder {
     height: 34px !important;
   }
 
-  /* Boxes should not sit flush against the left/right edges - keep them narrow and
-     tall like the Activity cards, except for card-grid items which are already
-     sized by the grid itself. */
+  /* Boxes should scale with the page width instead of using a fixed narrow size -
+     wider on a bigger screen, but capped so they never touch the left/right edges.
+     Card-grid items are excluded since the grid itself controls their width. */
   .glow-card {
-    max-width: 320px;
-    width: 100%;
+    width: min(92%, 420px);
     margin-left: auto;
     margin-right: auto;
   }
   .cards-grid .glow-card {
-    max-width: 100%;
+    width: 100%;
     margin: 0;
+  }
+
+  /* Activities/Projects cards: let a lone column stretch to fill the row
+     (matching the reference), while still forming 2 columns when there's room. */
+  .cards-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  /* Skill tab pills: shrink so "Technical Skills / Management & Leadership / Languages"
+     always fits, wrapping to a second line only if truly necessary. */
+  .pill-btn {
+    padding: 7px 12px !important;
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .pill-btn {
+    padding: 6px 9px !important;
+    font-size: 10.5px !important;
   }
 }
 

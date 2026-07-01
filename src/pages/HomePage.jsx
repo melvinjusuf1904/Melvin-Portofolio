@@ -186,7 +186,10 @@ export default function HomePage({ onGoToProjects }) {
           A comprehensive overview of my technical capabilities, leadership experience, and languages.
         </p>
 
-        <div style={{ display: "inline-flex", gap: 6, background: "#11151F", padding: 5, borderRadius: 999, border: "1px solid #1E2433", marginBottom: 40 }}>
+        <div
+          className="skill-tab-group"
+          style={{ display: "inline-flex", flexWrap: "wrap", justifyContent: "center", gap: 6, background: "#11151F", padding: 5, borderRadius: 999, border: "1px solid #1E2433", marginBottom: 40, maxWidth: "100%" }}
+        >
           {Object.keys(SKILL_TABS).map((t) => (
             <Pill key={t} label={t} active={skillTab === t} onClick={() => setSkillTab(t)} />
           ))}
