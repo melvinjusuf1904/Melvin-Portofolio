@@ -1,7 +1,12 @@
+import { useState } from "react";
 import { ArrowLeft, ImageIcon, ListChecks, Sparkles } from "lucide-react";
 import Card from "../components/Card";
 
 export default function ActivityDetailPage({ activity, onBack }) {
+  const images = activity.images || [];
+  // foto yang sedang ditampilkan besar di atas; defaultnya foto pertama di array
+  const [activeImage, setActiveImage] = useState(images[0] || "");
+
   return (
     <section style={{ maxWidth: 1050, margin: "0 auto", padding: "60px 32px 100px" }}>
       <button
@@ -54,8 +59,9 @@ export default function ActivityDetailPage({ activity, onBack }) {
             style={{
               height: 220,
               borderRadius: 12,
-              border: "1px dashed #2A3142",
-              background: "linear-gradient(135deg, #11151F, #161B26)",
+              border: activeImage ? "none" : "1px dashed #2A3142",
+              background: activeImage ? undefined : "linear-gradient(135deg, #11151F, #161B26)",
+              overflow: "hidden",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -64,28 +70,62 @@ export default function ActivityDetailPage({ activity, onBack }) {
               marginBottom: 10,
             }}
           >
-            <ImageIcon size={26} color="#3D4659" />
-            <span style={{ fontSize: 12, color: "#3D4659", fontFamily: "'JetBrains Mono', monospace" }}>add main photo</span>
+            {activeImage ? (
+              <img
+                src={activeImage}
+                alt={activity.org}
+                style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+              />
+            ) : (
+              <>
+                <ImageIcon size={26} color="#3D4659" />
+                <span style={{ fontSize: 12, color: "#3D4659", fontFamily: "'JetBrains Mono', monospace" }}>add main photo</span>
+              </>
+            )}
           </div>
 
+          {/* thumbnail: klik salah satu untuk jadikan foto utama di atas */}
           <div style={{ display: "flex", gap: 10 }}>
-            {[1, 2].map((n) => (
-              <div
-                key={n}
-                style={{
-                  flex: 1,
-                  height: 60,
-                  borderRadius: 8,
-                  border: "1px dashed #2A3142",
-                  background: "linear-gradient(135deg, #11151F, #161B26)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <ImageIcon size={16} color="#3D4659" />
-              </div>
-            ))}
+            {images.length > 0
+              ? images.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveImage(img)}
+                    style={{
+                      flex: 1,
+                      height: 60,
+                      borderRadius: 8,
+                      padding: 0,
+                      cursor: "pointer",
+                      overflow: "hidden",
+                      border: activeImage === img ? "2px solid #5EEAD4" : "1px solid #2A3142",
+                      background: "none",
+                    }}
+                  >
+                    <img
+                      src={img}
+                      alt={`${activity.org} ${i + 1}`}
+                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                    />
+                  </button>
+                ))
+              : [1, 2].map((n) => (
+                  <div
+                    key={n}
+                    style={{
+                      flex: 1,
+                      height: 60,
+                      borderRadius: 8,
+                      border: "1px dashed #2A3142",
+                      background: "linear-gradient(135deg, #11151F, #161B26)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <ImageIcon size={16} color="#3D4659" />
+                  </div>
+                ))}
           </div>
         </Card>
 

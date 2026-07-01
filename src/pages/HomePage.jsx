@@ -5,6 +5,7 @@ import Pill from "../components/Pill";
 import { ACCENT, PROFILE, EDUCATION, CERTS, AWARDS, PARTICLES } from "../data/portfolioData";
 import { SKILL_TABS } from "../data/skillTabs";
 
+
 export default function HomePage({ onGoToProjects }) {
   const [skillTab, setSkillTab] = useState("Technical Skills");
   const [certSearch, setCertSearch] = useState("");
@@ -170,6 +171,8 @@ export default function HomePage({ onGoToProjects }) {
                   <h4 style={{ margin: "0 0 2px", fontSize: 15.5, color: "#F1F4FA" }}>{e.school}</h4>
                   <p style={{ margin: "0 0 4px", fontSize: 13.5, color: "#7C9EFF" }}>{e.degree}</p>
                   <p style={{ margin: 0, fontSize: 12.5, color: "#5C6780" }}>{e.period}</p>
+                  <p style={{ margin: 0, fontSize: 12.5, color: "#5C6780" }}>{e.grade}</p>
+                  <p style={{ margin: 0, fontSize: 12.5, color: "#5C6780" }}>{e.activities}</p>
                 </div>
               </div>
             ))}

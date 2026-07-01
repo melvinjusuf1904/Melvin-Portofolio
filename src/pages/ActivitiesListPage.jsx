@@ -11,7 +11,7 @@ export default function ActivitiesListPage({ onSelectActivity }) {
         Highlighting my leadership roles, financial operations, competition involvement, and community contributions.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 22, textAlign: "left" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, 280px)", gap: 22, textAlign: "left" }}>
         {ACTIVITIES.map((a) => (
           <div
             key={a.id}
@@ -25,15 +25,16 @@ export default function ActivitiesListPage({ onSelectActivity }) {
               flexDirection: "column",
             }}
           >
-            {/* thumbnail placeholder */}
+            {/* thumbnail: pakai foto pertama dari array `images`, kalau kosong tampilkan placeholder */}
             <div
               style={{
                 position: "relative",
                 height: 170,
-                background: "linear-gradient(135deg, #11151F, #161B26)",
-                border: "1px dashed #2A3142",
+                background: a.images?.[0] ? undefined : "linear-gradient(135deg, #11151F, #161B26)",
+                border: a.images?.[0] ? "none" : "1px dashed #2A3142",
                 margin: 14,
                 borderRadius: 12,
+                overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -41,21 +42,31 @@ export default function ActivitiesListPage({ onSelectActivity }) {
                 gap: 8,
               }}
             >
-              <ImageIcon size={26} color="#3D4659" />
-              <span style={{ fontSize: 12, color: "#3D4659", fontFamily: "'JetBrains Mono', monospace" }}>add activity photo</span>
-              <span
-                style={{
-                  position: "absolute",
-                  top: 10,
-                  left: 10,
-                  fontSize: 11,
-                  padding: "4px 10px",
-                  borderRadius: 999,
-                  background: "rgba(94,234,212,0.10)",
-                  color: "#5EEAD4",
-                  fontFamily: "'JetBrains Mono', monospace",
-                }}
-              >
+              {a.images?.[0] ? (
+                <img
+                  src={a.images[0]}
+                  alt={a.org}
+                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                />
+              ) : (
+                <>
+                  <ImageIcon size={26} color="#3D4659" />
+                  <span style={{ fontSize: 12, color: "#3D4659", fontFamily: "'JetBrains Mono', monospace" }}>add activity photo</span>
+                </>
+              )}
+            <span
+              style={{
+                position: "absolute",
+                top: 10,
+                left: 10,
+                fontSize: 11,
+                padding: "4px 10px",
+                borderRadius: 999,
+                background: "rgba(94,234,212,0.10)",
+                color: "#5EEAD4",
+                fontFamily: "'JetBrains Mono', monospace",
+              }}
+            >
                 {a.period}
               </span>
             </div>

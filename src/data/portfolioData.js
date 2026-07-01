@@ -1,6 +1,12 @@
 // ================= DATA (from LinkedIn) =================
 // Ubah semua data profil, edukasi, skill, sertifikat, penghargaan,
 // proyek, dan aktivitas kamu di file ini saja.
+import Borneo from "../assets/borneo.jpeg";
+import Rank from "../assets/rank.jpeg";
+import CaseC1 from "../assets/caseconnect1.jpeg";
+import CaseC2 from "../assets/caseconnect2.jpeg";
+import CaseC3 from "../assets/caseconnect3.jpeg";
+
 
 export const PROFILE = {
   name: "Melvin Jusuf",
@@ -8,23 +14,26 @@ export const PROFILE = {
   role: "Computer Science student at BINUS University, specializing in AI & Machine Learning, with a strong passion for Trading, Investing and Market Analysis.",
   bio: "Undergraduate Computer Science student at BINUS University @Bandung. My professional interests are twofold: deeply invested in the development of AI and Machine Learning technologies, while also actively pursuing expertise in Trading, Investing and Market Analysis. Currently leading tournament operations at Binusian Gaming and competing in national trading & case competitions.",
   email: "melvinjusuf@yahoo.com",
-  phone: "+62 8xx-xxxx-xxxx",
+  phone: "+62 851-2101-6511",
   location: "Bandung, Indonesia",
-  github: "https://github.com/",
+  github: "https://github.com/melvinjusuf1904",
   linkedin: "https://linkedin.com/in/melvinjusuf",
-  instagram: "https://instagram.com/",
+  instagram: "https://instagram.com/v_inn_",
 };
 
 export const EDUCATION = [
   {
     school: "BINUS University",
     degree: "Bachelor of Science, Computer Science",
-    period: "2025 – 2029",
+    period: "2025 – Present",
+    grade: "GPA: 3.20/4.00",
   },
   {
     school: "SMA F. Tandean Tebing Tinggi",
-    degree: "Senior High School, Science Stream",
+    degree: "Senior High School, Science",
     period: "2020 – 2023",
+    grade: "GPA: 90.64",
+    activities: "Activities and Societies: Esports, Swimming, Basketball, Volleyball, Baseball",
   },
 ];
 
@@ -34,7 +43,7 @@ export const SKILL_TABS_RAW = {
   "Technical Skills": [
     { group: "AI & Machine Learning", icon: "Code2", items: ["Artificial Intelligence", "Machine Learning", "Spec-Driven Development", "Azure AI"] },
     { group: "Trading & Finance", icon: "Database", items: ["Market Analysis", "Trading", "Investments", "Financial Literacy"] },
-    { group: "Dev & Tools", icon: "Compass", items: ["Python", "HTML", "CSS", "Figma", "Git"] },
+    { group: "Dev & Tools", icon: "Compass", items: ["Python", "HTML", "CSS", "Figma", "Git", "C++"] },
   ],
   "Management & Leadership": [
     { group: "Leadership", icon: "Briefcase", items: ["Team Coordination", "Tournament Operations", "Leadership and Teamwork"] },
@@ -57,9 +66,9 @@ export const CERTS = [
 ];
 
 export const AWARDS = [
-  { title: "National Finalist — Borneo Online Trading Competition", year: "2026" },
-  { title: "National Finalist — CaseConnect Mini Case Competition", year: "2026" },
-  { title: "Top 4 Finalist — Rector Cup MLBB, BINUS University", year: "2025" },
+  { title: "[National] Top 10 Finalist Borneo Online Trading Competition (BOTC) by KSPM GI BEI UPR", year: "2026" },
+  { title: "[National] Finalist CaseConnect Mini Case Competition by DWDG", year: "2026" },
+  { title: "[University] Top 4 Finalist Rector Cup MLBB by BINUS University", year: "2025" },
 ];
 
 // Template kosong — isi proyek kamu sendiri di sini
@@ -108,34 +117,56 @@ export const PROJECTS = [
 // Template kosong — isi aktivitas/organisasi kamu sendiri di sini
 export const ACTIVITIES = [
   {
-    id: 1,
-    period: "Month Year – Present",
-    org: "Organization Name",
-    role: "Your Role / Position",
-    points: ["Add an achievement or responsibility here", "Add another achievement or responsibility here"],
-    notes:
-      "Write a longer explanation of your role and contributions here — what you led, coordinated, or built as part of this organization.",
-    focusAreas: ["Add a key focus area here", "Add another key focus area here"],
-  },
-  {
     id: 2,
-    period: "Month Year – Month Year",
-    org: "Organization Name",
-    role: "Your Role / Position",
-    points: ["Add an achievement or responsibility here", "Add another achievement or responsibility here"],
+    period: "Apr 2026 – May 2026",
+    org: "Business Case Competition",
+    role: "Participant / Finalist",
+    images: [CaseC1, CaseC2, CaseC3], // contoh: ["/images/foto1.jpg", "/images/foto2.jpg"] — kosongkan array untuk pakai placeholder
+    points: [
+      "Secured 8th place in the national Borneo Online Trading Competition 2026, demonstrating strong trading skills and market analysis.", 
+      "Generated Competitive Trading Edge",
+      "Monitored JCI (IGHG) Market Dynamics and Issuer Price Actiobs"
+    ],
     notes:
-      "Write a longer explanation of your role and contributions here — what you led, coordinated, or built as part of this organization.",
-    focusAreas: ["Add a key focus area here", "Add another key focus area here"],
+      "Honored to be among the Top 10 Finalists of the borneo Online Trading Competition 2026!🚀" +
+      "A huge shoutout to my teammate @GarrethDavies (https://lnkd.in/ge3CxUCR), for the incredible collaboration and strategic" +
+      "alignment throughtout the trading period." +
+      "I am thrilled to share that my team, StockQueue, has secured the 8th position in this prestigious competition!" +
+      "One of the key drivers behind our performance was our strategic positioning in $BRPT (PT Barito Pasific Tbk), " +
+      "which we identified as the most solid issuer throughout this period.",
+    focusAreas: [
+      "Strategic Stock Selection & Market Timing", 
+      "Advanced Technical Analysis",
+      "Market Psychology & Discliplined Execution",
+      "Strategic Collaboration & Teamwork",
+      "Capital Market Resilience & Growth"
+    ],
   },
   {
-    id: 3,
-    period: "Month Year – Month Year",
-    org: "Organization Name",
-    role: "Your Role / Position",
-    points: ["Add an achievement or responsibility here", "Add another achievement or responsibility here"],
+    id: 1,
+    period: "Apr 2026 – May 2026",
+    org: "Borneo Online Trading Competition",
+    role: "Participant / Top 10 Finalist",
+    images: [Borneo, Rank], // contoh: ["/images/foto1.jpg", "/images/foto2.jpg"] — kosongkan array untuk pakai placeholder
+    points: [
+      "Secured 8th place in the national Borneo Online Trading Competition 2026, demonstrating strong trading skills and market analysis.", 
+      "Generated Competitive Trading Edge",
+      "Monitored JCI (IGHG) Market Dynamics and Issuer Price Actiobs"
+    ],
     notes:
-      "Write a longer explanation of your role and contributions here — what you led, coordinated, or built as part of this organization.",
-    focusAreas: ["Add a key focus area here", "Add another key focus area here"],
+      "Honored to be among the Top 10 Finalists of the borneo Online Trading Competition 2026!🚀" +
+      "A huge shoutout to my teammate @GarrethDavies (https://lnkd.in/ge3CxUCR), for the incredible collaboration and strategic" +
+      "alignment throughtout the trading period." +
+      "I am thrilled to share that my team, StockQueue, has secured the 8th position in this prestigious competition!" +
+      "One of the key drivers behind our performance was our strategic positioning in $BRPT (PT Barito Pasific Tbk), " +
+      "which we identified as the most solid issuer throughout this period.",
+    focusAreas: [
+      "Strategic Stock Selection & Market Timing", 
+      "Advanced Technical Analysis",
+      "Market Psychology & Discliplined Execution",
+      "Strategic Collaboration & Teamwork",
+      "Capital Market Resilience & Growth"
+    ],
   },
 ];
 

@@ -18,7 +18,7 @@ export default function SiteFooter({ profile }) {
       >
         <div>
           <h4 style={{ margin: "0 0 4px", fontSize: 16, color: "#F1F4FA" }}>{profile.name}</h4>
-          <p style={{ margin: 0, fontSize: 13, color: "#5C6780" }}>Computer Science Student @ BINUS University | AI & Trading Enthusiast</p>
+          <p style={{ margin: 0, fontSize: 13, color: "#5C6780" }}>Computer Science Student @ BINUS University | AI, Machine Learning, and Trading Enthusiast</p>
         </div>
         <div style={{ display: "flex", gap: 14 }}>
           {[

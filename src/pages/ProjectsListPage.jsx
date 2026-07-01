@@ -11,7 +11,7 @@ export default function ProjectsListPage({ onSelectProject }) {
         Explore my academic research, full-stack applications, and award-winning prototypes. Click on any project card to see its full breakdown and demo.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 22, textAlign: "left" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, 280px)", gap: 22, textAlign: "left" }}>
         {PROJECTS.map((p) => (
           <div
             key={p.id}
