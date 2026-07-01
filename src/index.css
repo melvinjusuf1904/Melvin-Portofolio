@@ -92,6 +92,17 @@ input::placeholder {
   justify-content: center;
 }
 
+/* Nav: desktop pill row by default */
+.nav-pill-group {
+  display: flex;
+}
+.nav-hamburger-btn {
+  display: none;
+}
+.nav-mobile-dropdown {
+  display: none;
+}
+
 @media (max-width: 860px) {
   .hero-photo {
     order: -1;
@@ -108,6 +119,17 @@ input::placeholder {
   section {
     padding-left: 20px !important;
     padding-right: 20px !important;
+  }
+
+  /* Mid-size mobile/tablet range: switch to hamburger */
+  .nav-pill-group {
+    display: none;
+  }
+  .nav-hamburger-btn {
+    display: flex;
+  }
+  .nav-mobile-dropdown.open {
+    display: flex;
   }
 }
 
@@ -133,6 +155,17 @@ input::placeholder {
   .pill-btn {
     padding: 7px 10px !important;
     font-size: 11px !important;
+  }
+
+  /* Smallest phones: go back to a compact pill row instead of the hamburger */
+  .nav-pill-group {
+    display: flex !important;
+  }
+  .nav-hamburger-btn {
+    display: none !important;
+  }
+  .nav-mobile-dropdown {
+    display: none !important;
   }
 }
 
