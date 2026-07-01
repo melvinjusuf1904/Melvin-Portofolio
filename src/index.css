@@ -121,7 +121,7 @@ input::placeholder {
     padding-right: 20px !important;
   }
 
-  /* Mid-size mobile/tablet range: switch to hamburger */
+  /* Mobile/tablet: always hamburger. Full pill row is desktop-only. */
   .nav-pill-group {
     display: none;
   }
@@ -131,9 +131,38 @@ input::placeholder {
   .nav-mobile-dropdown.open {
     display: flex;
   }
+  .site-nav {
+    padding: 14px 20px !important;
+  }
+  .nav-logo {
+    font-size: 14px !important;
+  }
+  .nav-logo span:first-child {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 12px !important;
+  }
+  .nav-hamburger-btn {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  /* Boxes should not sit flush against the left/right edges - keep them narrow and
+     tall like the Activity cards, except for card-grid items which are already
+     sized by the grid itself. */
+  .glow-card {
+    max-width: 320px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cards-grid .glow-card {
+    max-width: 100%;
+    margin: 0;
+  }
 }
 
-/* Nav: keep everything on one row, just shrink logo text and pills as space runs out */
+/* Shrink the logo further as the phone gets smaller (still hamburger the whole way) */
 @media (max-width: 480px) {
   .site-nav {
     padding: 12px 14px !important;
@@ -148,33 +177,14 @@ input::placeholder {
     height: 24px !important;
     font-size: 11px !important;
   }
-  .nav-pill-group {
-    gap: 2px !important;
-    padding: 3px !important;
-  }
-  .pill-btn {
-    padding: 7px 10px !important;
-    font-size: 11px !important;
-  }
-
-  /* Smallest phones: go back to a compact pill row instead of the hamburger */
-  .nav-pill-group {
-    display: flex !important;
-  }
   .nav-hamburger-btn {
-    display: none !important;
-  }
-  .nav-mobile-dropdown {
-    display: none !important;
+    width: 32px !important;
+    height: 32px !important;
   }
 }
 
 @media (max-width: 380px) {
   .nav-logo span:last-child {
     display: none;
-  }
-  .pill-btn {
-    padding: 6px 8px !important;
-    font-size: 10px !important;
   }
 }
