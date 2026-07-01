@@ -62,7 +62,7 @@ export default function ProjectDetailPage({ project, onBack }) {
         <span style={{ fontSize: 13, color: "#3D4659", fontFamily: "'JetBrains Mono', monospace" }}>add image, screenshot, or video embed</span>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 24 }}>
+      <div className="two-col-grid" style={{ gridTemplateColumns: "1.4fr 1fr" }}>
         <Card>
           <h3 style={{ margin: "0 0 14px", fontSize: 20, color: "#F1F4FA" }}>Project Overview</h3>
           <p style={{ margin: "0 0 28px", fontSize: 14.5, lineHeight: 1.8, color: "#9AA6BC" }}>{project.overview}</p>

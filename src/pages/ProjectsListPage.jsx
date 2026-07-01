@@ -11,7 +11,7 @@ export default function ProjectsListPage({ onSelectProject }) {
         Explore my academic research, full-stack applications, and award-winning prototypes. Click on any project card to see its full breakdown and demo.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, 280px)", gap: 22, textAlign: "left" }}>
+      <div className="cards-grid" style={{ textAlign: "left" }}>
         {PROJECTS.map((p) => (
           <div
             key={p.id}
@@ -51,9 +51,12 @@ export default function ProjectsListPage({ onSelectProject }) {
                   fontSize: 11,
                   padding: "4px 10px",
                   borderRadius: 999,
-                  background: "rgba(94,234,212,0.10)",
+                  background: "rgba(11,14,20,0.82)",
+                  backdropFilter: "blur(4px)",
+                  border: "1px solid rgba(94,234,212,0.4)",
                   color: "#5EEAD4",
                   fontFamily: "'JetBrains Mono', monospace",
+                  fontWeight: 700,
                 }}
               >
                 {p.category}

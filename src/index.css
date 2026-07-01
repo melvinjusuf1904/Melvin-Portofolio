@@ -4,8 +4,21 @@
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  background: #0B0E14;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  background: #0B0E14;
+}
+
+body {
+  overscroll-behavior-y: none;
 }
 
 a {
@@ -45,5 +58,81 @@ input::placeholder {
   50% {
     transform: translateY(-18px) translateX(6px);
     opacity: 0.75;
+  }
+}
+
+/* ================= RESPONSIVE LAYOUT ================= */
+
+/* Hero: on desktop text-card then photo (row). On mobile, photo appears first. */
+.hero-wrap {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+.hero-photo {
+  order: 2;
+}
+.hero-text-card {
+  order: 1;
+}
+
+/* Two-column sections (Summary/Education, Certifications/Awards) collapse to one column on mobile */
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+}
+
+/* Card grids (Projects, Activities) - self-center, no overflow on small screens */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 280px));
+  gap: 22px;
+  justify-content: center;
+}
+
+/* Desktop nav (pill switcher) vs mobile hamburger */
+.nav-desktop-menu {
+  display: flex;
+}
+.nav-hamburger-btn {
+  display: none;
+}
+.nav-mobile-menu {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .hero-photo {
+    order: -1;
+    margin: 0 auto 8px;
+  }
+  .hero-text-card {
+    order: 0;
+  }
+
+  .two-col-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cards-grid {
+    grid-template-columns: minmax(0, 400px) !important;
+    justify-content: center;
+  }
+
+  .nav-desktop-menu {
+    display: none;
+  }
+  .nav-hamburger-btn {
+    display: flex;
+  }
+  .nav-mobile-menu.open {
+    display: flex;
+  }
+
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
   }
 }

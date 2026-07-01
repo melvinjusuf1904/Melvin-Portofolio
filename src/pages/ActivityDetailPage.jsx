@@ -47,7 +47,7 @@ export default function ActivityDetailPage({ activity, onBack }) {
       </h1>
       <p style={{ fontSize: 16, color: "#7C9EFF", marginBottom: 36 }}>{activity.role}</p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1.1fr", gap: 24 }}>
+      <div className="two-col-grid" style={{ gridTemplateColumns: "1fr 1.1fr" }}>
         {/* Activity Gallery */}
         <Card>
           <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>

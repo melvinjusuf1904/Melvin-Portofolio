@@ -46,19 +46,16 @@ export default function HomePage({ onGoToProjects }) {
         ))}
 
         <div
+          className="hero-wrap"
           style={{
             maxWidth: 1100,
             margin: "0 auto",
-            display: "flex",
-            alignItems: "center",
-            gap: 60,
-            flexWrap: "wrap",
             position: "relative",
             zIndex: 1,
           }}
         >
           <div
-            className="glow-card"
+            className="glow-card hero-text-card"
             style={{
               flex: "1 1 480px",
               minWidth: 300,
@@ -108,7 +105,7 @@ export default function HomePage({ onGoToProjects }) {
             </button>
           </div>
 
-          <div style={{ flex: "0 0 auto", margin: "0 auto" }}>
+          <div className="hero-photo" style={{ flex: "0 0 auto", margin: "0 auto" }}>
             <div
               style={{
                 width: 300,
@@ -140,7 +137,7 @@ export default function HomePage({ onGoToProjects }) {
       </section>
 
       {/* SUMMARY + EDUCATION */}
-      <section style={{ maxWidth: 1100, margin: "0 auto", padding: "10px 32px 70px", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 24 }}>
+      <section className="two-col-grid" style={{ maxWidth: 1100, margin: "0 auto", padding: "10px 32px 70px" }}>
         <Card>
           <h2 style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 24, color: "#F1F4FA", margin: "0 0 6px" }}>Summary</h2>
           <div style={{ width: 46, height: 3, background: ACCENT, borderRadius: 4, marginBottom: 20 }} />
@@ -223,7 +220,7 @@ export default function HomePage({ onGoToProjects }) {
       </section>
 
       {/* CERTIFICATIONS + AWARDS */}
-      <section style={{ maxWidth: 1100, margin: "0 auto", padding: "10px 32px 90px", display: "grid", gridTemplateColumns: "1.1fr 0.9fr", gap: 24 }}>
+      <section className="two-col-grid" style={{ maxWidth: 1100, margin: "0 auto", padding: "10px 32px 90px" }}>
         <Card style={{ maxHeight: 460, display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, marginBottom: 20, flexWrap: "wrap" }}>
             <h2 style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 22, color: "#F1F4FA", margin: 0 }}>Certifications</h2>

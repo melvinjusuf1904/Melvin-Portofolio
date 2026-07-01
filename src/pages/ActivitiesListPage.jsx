@@ -11,7 +11,7 @@ export default function ActivitiesListPage({ onSelectActivity }) {
         Highlighting my leadership roles, financial operations, competition involvement, and community contributions.
       </p>
 
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, 280px)", gap: 22, textAlign: "left" }}>
+      <div className="cards-grid" style={{ textAlign: "left" }}>
         {ACTIVITIES.map((a) => (
           <div
             key={a.id}
@@ -62,9 +62,12 @@ export default function ActivitiesListPage({ onSelectActivity }) {
                 fontSize: 11,
                 padding: "4px 10px",
                 borderRadius: 999,
-                background: "rgba(94,234,212,0.10)",
+                background: "rgba(11,14,20,0.82)",
+                backdropFilter: "blur(4px)",
+                border: "1px solid rgba(94,234,212,0.4)",
                 color: "#5EEAD4",
                 fontFamily: "'JetBrains Mono', monospace",
+                fontWeight: 700,
               }}
             >
                 {a.period}

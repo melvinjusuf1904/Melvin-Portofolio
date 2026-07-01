@@ -1,7 +1,16 @@
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 import Pill from "./Pill";
 import { ACCENT, NAV } from "../data/portfolioData";
 
 export default function NavBar({ page, onNavigate }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleNavigate = (n) => {
+    onNavigate(n);
+    setMenuOpen(false);
+  };
+
   return (
     <nav
       style={{
@@ -38,9 +47,69 @@ export default function NavBar({ page, onNavigate }) {
         <span style={{ color: "#F1F4FA" }}>Mel's Portfolio</span>
       </div>
 
-      <div style={{ display: "flex", gap: 6, background: "#11151F", padding: 5, borderRadius: 999, border: "1px solid #1E2433" }}>
+      {/* Desktop pill switcher */}
+      <div
+        className="nav-desktop-menu"
+        style={{ gap: 6, background: "#11151F", padding: 5, borderRadius: 999, border: "1px solid #1E2433" }}
+      >
         {NAV.map((n) => (
-          <Pill key={n} label={n} active={page === n} onClick={() => onNavigate(n)} />
+          <Pill key={n} label={n} active={page === n} onClick={() => handleNavigate(n)} />
+        ))}
+      </div>
+
+      {/* Hamburger button (mobile only) */}
+      <button
+        className="nav-hamburger-btn"
+        onClick={() => setMenuOpen((v) => !v)}
+        aria-label="Toggle menu"
+        style={{
+          alignItems: "center",
+          justifyContent: "center",
+          width: 40,
+          height: 40,
+          borderRadius: 10,
+          border: "1px solid #1E2433",
+          background: "#11151F",
+          color: "#F1F4FA",
+          cursor: "pointer",
+        }}
+      >
+        {menuOpen ? <X size={20} /> : <Menu size={20} />}
+      </button>
+
+      {/* Mobile dropdown menu */}
+      <div
+        className={`nav-mobile-menu${menuOpen ? " open" : ""}`}
+        style={{
+          flexDirection: "column",
+          width: "100%",
+          gap: 8,
+          marginTop: 6,
+          background: "#11151F",
+          border: "1px solid #1E2433",
+          borderRadius: 12,
+          padding: 8,
+        }}
+      >
+        {NAV.map((n) => (
+          <button
+            key={n}
+            onClick={() => handleNavigate(n)}
+            style={{
+              padding: "12px 16px",
+              borderRadius: 8,
+              border: "none",
+              textAlign: "left",
+              fontSize: 14.5,
+              fontWeight: 600,
+              fontFamily: "'Inter', sans-serif",
+              background: page === n ? ACCENT : "transparent",
+              color: page === n ? "#0B0E14" : "#9AA6BC",
+              cursor: "pointer",
+            }}
+          >
+            {n}
+          </button>
         ))}
       </div>
     </nav>
