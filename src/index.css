@@ -117,8 +117,17 @@ input::placeholder {
   }
 
   .cards-grid {
-    grid-template-columns: minmax(0, 400px) !important;
+    grid-template-columns: 1fr !important;
     justify-content: center;
+  }
+
+  /* Boxes should not stretch edge-to-edge on mobile - keep them narrower & centered,
+     so content wraps and grows taller instead of stretching wide. */
+  .glow-card {
+    max-width: 380px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .nav-desktop-menu {
