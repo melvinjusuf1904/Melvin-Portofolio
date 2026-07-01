@@ -84,23 +84,12 @@ input::placeholder {
   gap: 24px;
 }
 
-/* Card grids (Projects, Activities) - self-center, no overflow on small screens */
+/* Card grids (Projects, Activities) - self-adjusting columns, never overflow the screen */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 280px));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 280px));
+  gap: 18px;
   justify-content: center;
-}
-
-/* Desktop nav (pill switcher) vs mobile hamburger */
-.nav-desktop-menu {
-  display: flex;
-}
-.nav-hamburger-btn {
-  display: none;
-}
-.nav-mobile-menu {
-  display: none;
 }
 
 @media (max-width: 860px) {
@@ -116,32 +105,43 @@ input::placeholder {
     grid-template-columns: 1fr !important;
   }
 
-  .cards-grid {
-    grid-template-columns: 1fr !important;
-    justify-content: center;
-  }
-
-  /* Boxes should not stretch edge-to-edge on mobile - keep them narrower & centered,
-     so content wraps and grows taller instead of stretching wide. */
-  .glow-card {
-    max-width: 380px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .nav-desktop-menu {
-    display: none;
-  }
-  .nav-hamburger-btn {
-    display: flex;
-  }
-  .nav-mobile-menu.open {
-    display: flex;
-  }
-
   section {
     padding-left: 20px !important;
     padding-right: 20px !important;
+  }
+}
+
+/* Nav: keep everything on one row, just shrink logo text and pills as space runs out */
+@media (max-width: 480px) {
+  .site-nav {
+    padding: 12px 14px !important;
+    gap: 6px !important;
+  }
+  .nav-logo {
+    font-size: 13px !important;
+    gap: 6px !important;
+  }
+  .nav-logo span:first-child {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 11px !important;
+  }
+  .nav-pill-group {
+    gap: 2px !important;
+    padding: 3px !important;
+  }
+  .pill-btn {
+    padding: 7px 10px !important;
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-logo span:last-child {
+    display: none;
+  }
+  .pill-btn {
+    padding: 6px 8px !important;
+    font-size: 10px !important;
   }
 }
