@@ -1,15 +1,6 @@
 // ================= DATA (from LinkedIn) =================
 // Ubah semua data profil, edukasi, skill, sertifikat, penghargaan,
 // proyek, dan aktivitas kamu di file ini saja.
-import BOTCcert from "../assets/BOTCcert.jpeg";
-import Borneo from "../assets/borneo.jpeg";
-import Rank from "../assets/rank.jpeg";
-import CCcert from "../assets/CCcert.png";
-import CaseC1 from "../assets/caseconnect1.jpeg";
-import CaseC2 from "../assets/caseconnect2.jpeg";
-import CaseC3 from "../assets/caseconnect3.jpeg";
-
-
 export const PROFILE = {
   name: "Melvin Jusuf",
   initials: "MJ",
@@ -129,7 +120,12 @@ export const ACTIVITIES = [
     period: "Apr 2026 – May 2026",
     org: "Business Case Competition",
     role: "Participant / Finalist",
-    images: [CCcert,CaseC1, CaseC2, CaseC3], // contoh: ["/images/foto1.jpg", "/images/foto2.jpg"] — kosongkan array untuk pakai placeholder
+    images: [
+      "/images/CCcert.png",
+      "/images/caseconnect1.jpeg",
+      "/images/caseconnect2.jpeg",
+      "/images/caseconnect3.jpeg",
+    ], // contoh: ["/images/foto1.jpg", "/images/foto2.jpg"] — kosongkan array untuk pakai placeholder
     points: [
       "Co-Developed a Comprehensive Business Strategy.", 
       "Collaborated to Conduct Market and Operational Analysis."
@@ -153,7 +149,11 @@ export const ACTIVITIES = [
     period: "Apr 2026 – May 2026",
     org: "Borneo Online Trading Competition",
     role: "Participant / Top 10 Finalist",
-    images: [BOTCcert, Borneo, Rank], // contoh: ["/images/foto1.jpg", "/images/foto2.jpg"] — kosongkan array untuk pakai placeholder
+    images: [
+      "/images/BOTCcert.jpeg",
+      "/images/borneo.jpeg",
+      "/images/rank.jpeg",
+    ], // contoh: ["/images/foto1.jpg", "/images/foto2.jpg"] — kosongkan array untuk pakai placeholder
     points: [
       "Secured 8th place in the national Borneo Online Trading Competition 2026, demonstrating strong trading skills and market analysis.", 
       "Monitored JCI (IGHG) Market Dynamics and Issuer Price Actiobs."
