@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -8,10 +8,106 @@ import Activities from './pages/Activities';
 import ActivityDetail from './pages/ActivityDetail';
 import Contact from './pages/Contact';
 
+// --- Lightweight URL <-> page-state mapping (no external router needed) ---
+// Keeps the current page/id in the address bar so a refresh (or a shared
+// link) lands back on the same page instead of always resetting to Home.
+function pageToPath(page, projectId, activityId) {
+  switch (page) {
+    case 'home':
+      return '/';
+    case 'projects':
+      return '/projects';
+    case 'project-detail':
+      return projectId != null ? `/projects/${projectId}` : '/projects';
+    case 'activities':
+      return '/activities';
+    case 'activity-detail':
+      return activityId != null ? `/activities/${activityId}` : '/activities';
+    case 'contact':
+      return '/contact';
+    default:
+      return '/';
+  }
+}
+
+function pathToState(pathname) {
+  const parts = pathname.split('/').filter(Boolean);
+
+  if (parts.length === 0) {
+    return { page: 'home', projectId: null, activityId: null };
+  }
+
+  if (parts[0] === 'projects') {
+    if (parts[1] !== undefined) {
+      const id = Number(parts[1]);
+      return { page: 'project-detail', projectId: Number.isNaN(id) ? parts[1] : id, activityId: null };
+    }
+    return { page: 'projects', projectId: null, activityId: null };
+  }
+
+  if (parts[0] === 'activities') {
+    if (parts[1] !== undefined) {
+      const id = Number(parts[1]);
+      return { page: 'activity-detail', projectId: null, activityId: Number.isNaN(id) ? parts[1] : id };
+    }
+    return { page: 'activities', projectId: null, activityId: null };
+  }
+
+  if (parts[0] === 'contact') {
+    return { page: 'contact', projectId: null, activityId: null };
+  }
+
+  return { page: 'home', projectId: null, activityId: null };
+}
+
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
-  const [selectedProjectId, setSelectedProjectId] = useState(null);
-  const [selectedActivityId, setSelectedActivityId] = useState(null);
+  // Read the initial page straight from the URL so a hard refresh restores
+  // whatever page/detail the user was on instead of bouncing to Home.
+  const initialState = pathToState(window.location.pathname);
+
+  const [currentPage, setCurrentPageState] = useState(initialState.page);
+  const [selectedProjectId, setSelectedProjectIdState] = useState(initialState.projectId);
+  const [selectedActivityId, setSelectedActivityIdState] = useState(initialState.activityId);
+
+  // Refs mirror the ids synchronously so that when a page's click handler
+  // calls setSelectedProjectId(id) immediately followed by setCurrentPage(id),
+  // the URL we push already has the correct id (React state updates are async/batched).
+  const projectIdRef = useRef(initialState.projectId);
+  const activityIdRef = useRef(initialState.activityId);
+
+  const setSelectedProjectId = (id) => {
+    projectIdRef.current = id;
+    setSelectedProjectIdState(id);
+  };
+
+  const setSelectedActivityId = (id) => {
+    activityIdRef.current = id;
+    setSelectedActivityIdState(id);
+  };
+
+  const setCurrentPage = (page) => {
+    setCurrentPageState(page);
+    const path = pageToPath(page, projectIdRef.current, activityIdRef.current);
+    if (window.location.pathname !== path) {
+      window.history.pushState({}, '', path);
+    }
+    window.scrollTo(0, 0);
+  };
+
+  // Support the browser Back/Forward buttons too.
+  useEffect(() => {
+    const handlePopState = () => {
+      const state = pathToState(window.location.pathname);
+      setCurrentPageState(state.page);
+      projectIdRef.current = state.projectId;
+      activityIdRef.current = state.activityId;
+      setSelectedProjectIdState(state.projectId);
+      setSelectedActivityIdState(state.activityId);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   // Render current page component based on router state
   const renderPage = () => {

@@ -66,7 +66,7 @@ export default function Projects({ setCurrentPage, setSelectedProjectId }) {
                 <p style={{ color: 'var(--accent-blue)', fontSize: '0.8rem', fontWeight: '600', marginBottom: '14px' }}>
                   {project.subtitle}
                 </p>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.87rem', marginBottom: '20px', flexGrow: 1, lineHeight: '1.6', fontFamily: 'var(--font-sans)' }}>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.87rem', marginBottom: '20px', flexGrow: 1, lineHeight: '1.6', fontFamily: 'var(--font-sans)', whiteSpace: 'pre-line' }}>
                   {project.description}
                 </p>
 

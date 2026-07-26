@@ -171,7 +171,7 @@ export default function ActivityDetail({ setCurrentPage, selectedActivityId }) {
                 <ListChecks size={17} style={{ color: 'var(--accent-teal)' }} /> Explanation & Notes
               </h3>
 
-              <p style={{ fontSize: '0.95rem', lineHeight: '1.8', color: 'var(--text-secondary)', marginBottom: '22px', fontFamily: 'var(--font-sans)' }}>
+              <p style={{ fontSize: '0.95rem', lineHeight: '1.8', color: 'var(--text-secondary)', marginBottom: '22px', fontFamily: 'var(--font-sans)', whiteSpace: 'pre-line' }}>
                 {explanationText}
               </p>
 

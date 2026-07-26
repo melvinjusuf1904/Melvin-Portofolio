@@ -105,7 +105,7 @@ export default function ProjectDetail({ currentPage, setCurrentPage, selectedPro
           {/* Main write-up */}
           <div className="glass-card" style={{ flex: '1 1 500px', padding: '32px' }}>
             <h3 style={{ fontSize: '1.25rem', color: 'var(--text-primary)', marginBottom: '14px' }}>Project Overview</h3>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.8', fontFamily: 'var(--font-sans)' }}>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.8', fontFamily: 'var(--font-sans)', whiteSpace: 'pre-line' }}>
               {project.overview}
             </p>
 

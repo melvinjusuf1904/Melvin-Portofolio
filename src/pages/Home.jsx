@@ -130,7 +130,7 @@ export default function Home({ setCurrentPage }) {
                 }}
               ></span>
             </h2>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.8', fontFamily: 'var(--font-sans)' }}>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: '1.8', fontFamily: 'var(--font-sans)', whiteSpace: 'pre-line' }}>
               {PROFILE.bio}
             </p>
           </div>
