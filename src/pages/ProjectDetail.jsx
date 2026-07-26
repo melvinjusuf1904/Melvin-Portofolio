@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowLeft, ExternalLink, ImageIcon, CheckCircle2 } from 'lucide-react';
 import { Github } from '../components/SocialIcons';
 import { projectsData } from './Projects';
+import LazyImage from '../components/LazyImage';
 
 // Menerima link YouTube dalam berbagai format (watch?v=, youtu.be/, embed/)
 // dan mengubahnya jadi URL embed yang valid untuk <iframe>.
@@ -55,8 +56,8 @@ export default function ProjectDetail({ currentPage, setCurrentPage, selectedPro
         {/* Header */}
         <div style={{ textAlign: 'left', marginBottom: '32px' }}>
           <span className="badge" style={{ marginBottom: '12px' }}>{project.category}</span>
-          <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '10px', lineHeight: '1.2' }}>{project.title}</h1>
-          <p style={{ color: 'var(--accent-blue)', fontSize: '1rem', fontWeight: '500', fontFamily: 'var(--font-sans)' }}>{project.subtitle}</p>
+          <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '10px', lineHeight: '1.2', whiteSpace: 'pre-line' }}>{project.title}</h1>
+          <p style={{ color: 'var(--accent-blue)', fontSize: '1rem', fontWeight: '500', fontFamily: 'var(--font-sans)', whiteSpace: 'pre-line' }}>{project.subtitle}</p>
         </div>
 
         {/* Media */}
@@ -74,7 +75,7 @@ export default function ProjectDetail({ currentPage, setCurrentPage, selectedPro
             </div>
           ) : project.image ? (
             <div style={{ borderRadius: '12px', overflow: 'hidden', aspectRatio: '16/9' }}>
-              <img src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+              <LazyImage src={project.image} alt={project.title} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
             </div>
           ) : (
             <div

@@ -20,6 +20,28 @@
     <meta name="twitter:title" content="Melvin Jusuf — Portfolio" />
     <meta name="twitter:description" content="Portfolio Melvin Jusuf — riset ekuitas, proyek, dan aktivitas." />
     <meta name="twitter:image" content="/images/og-image.png" />
+
+    <!--
+      ANALYTICS
+      Opsi 1 (aktif): Vercel Analytics — otomatis mulai mencatat kunjungan
+      begitu situs ini di-deploy ke Vercel. Tidak perlu setup tambahan,
+      dan tidak melakukan apa-apa kalau di-host di tempat lain.
+    -->
+    <script defer src="/_vercel/insights/script.js"></script>
+
+    <!--
+      Opsi 2 (nonaktif): Google Analytics 4. Kalau tidak deploy ke Vercel,
+      hapus tag <script> Vercel di atas, lalu hapus komentar di bawah ini
+      dan ganti G-XXXXXXXXXX dengan Measurement ID dari akun GA4 kamu.
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+      </script>
+    -->
   </head>
   <body>
     <div id="root"></div>

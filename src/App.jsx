@@ -7,6 +7,7 @@ import ProjectDetail from './pages/ProjectDetail';
 import Activities from './pages/Activities';
 import ActivityDetail from './pages/ActivityDetail';
 import Contact from './pages/Contact';
+import NotFound from './pages/NotFound';
 
 // --- Lightweight URL <-> page-state mapping (no external router needed) ---
 // Keeps the current page/id in the address bar so a refresh (or a shared
@@ -25,6 +26,8 @@ function pageToPath(page, projectId, activityId) {
       return activityId != null ? `/activities/${activityId}` : '/activities';
     case 'contact':
       return '/contact';
+    case 'not-found':
+      return window.location.pathname;
     default:
       return '/';
   }
@@ -57,7 +60,7 @@ function pathToState(pathname) {
     return { page: 'contact', projectId: null, activityId: null };
   }
 
-  return { page: 'home', projectId: null, activityId: null };
+  return { page: 'not-found', projectId: null, activityId: null };
 }
 
 function App() {
@@ -146,6 +149,8 @@ function App() {
         );
       case 'contact':
         return <Contact />;
+      case 'not-found':
+        return <NotFound setCurrentPage={setCurrentPage} />;
       default:
         return <Home setCurrentPage={setCurrentPage} />;
     }

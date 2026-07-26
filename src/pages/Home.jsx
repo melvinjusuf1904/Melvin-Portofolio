@@ -3,6 +3,7 @@ import { GraduationCap, Search, Award, ArrowRight } from 'lucide-react';
 import melvinPhoto from '../assets/melvinfoto.jpeg';
 import { PROFILE, EDUCATION, CERTS, AWARDS, PARTICLES } from '../data/portfolioData';
 import { SKILL_TABS } from '../data/skillTabs';
+import Reveal from '../components/Reveal';
 
 export default function Home({ setCurrentPage }) {
   const [certSearch, setCertSearch] = useState('');
@@ -112,7 +113,7 @@ export default function Home({ setCurrentPage }) {
       </section>
 
       {/* Summary & Education Section */}
-      <section style={{ padding: '70px 24px', background: 'rgba(11, 14, 20, 0.6)' }}>
+      <Reveal as="section" style={{ padding: '70px 24px', background: 'rgba(11, 14, 20, 0.6)' }}>
         <div className="container" style={{ display: 'flex', flexWrap: 'wrap', gap: '32px', justifyContent: 'center' }}>
           {/* Summary Box */}
           <div className="glass-card home-info-card">
@@ -171,14 +172,14 @@ export default function Home({ setCurrentPage }) {
                     <GraduationCap size={18} />
                   </div>
                   <div>
-                    <h3 style={{ fontSize: '1.05rem', color: 'var(--text-primary)', fontWeight: '600', fontFamily: 'var(--font-sans)' }}>
+                    <h3 style={{ fontSize: '1.05rem', color: 'var(--text-primary)', fontWeight: '600', fontFamily: 'var(--font-sans)', whiteSpace: 'pre-line' }}>
                       {edu.school}
                     </h3>
-                    <p style={{ color: 'var(--accent-blue)', fontSize: '0.85rem', fontWeight: '500' }}>{edu.degree}</p>
-                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', margin: '4px 0' }}>{edu.period}</p>
-                    {edu.grade && <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', margin: 0 }}>{edu.grade}</p>}
+                    <p style={{ color: 'var(--accent-blue)', fontSize: '0.85rem', fontWeight: '500', whiteSpace: 'pre-line' }}>{edu.degree}</p>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', margin: '4px 0', whiteSpace: 'pre-line' }}>{edu.period}</p>
+                    {edu.grade && <p style={{ color: 'var(--text-secondary)', fontSize: '0.8rem', margin: 0, whiteSpace: 'pre-line' }}>{edu.grade}</p>}
                     {edu.activities && (
-                      <p style={{ color: 'var(--text-secondary)', fontSize: '0.78rem', margin: '4px 0 0' }}>{edu.activities}</p>
+                      <p style={{ color: 'var(--text-secondary)', fontSize: '0.78rem', margin: '4px 0 0', whiteSpace: 'pre-line' }}>{edu.activities}</p>
                     )}
                   </div>
                 </div>
@@ -186,10 +187,10 @@ export default function Home({ setCurrentPage }) {
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Skills Section */}
-      <section style={{ padding: '70px 24px', background: 'var(--bg-primary)' }}>
+      <Reveal as="section" style={{ padding: '70px 24px', background: 'var(--bg-primary)' }}>
         <div className="container">
           <h2 style={{ fontSize: '2rem', textAlign: 'center', marginBottom: '14px' }}>
             My <span className="text-gradient">Skills</span>
@@ -248,7 +249,7 @@ export default function Home({ setCurrentPage }) {
                   >
                     {IconComponent && <IconComponent size={20} />}
                   </div>
-                  <h3 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', marginBottom: '10px' }}>{skill.group}</h3>
+                  <h3 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', marginBottom: '10px', whiteSpace: 'pre-line' }}>{skill.group}</h3>
                   <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', fontFamily: 'var(--font-sans)' }}>
                     {skill.items.join(', ')}
                   </p>
@@ -257,10 +258,10 @@ export default function Home({ setCurrentPage }) {
             })}
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {/* Certifications and Achievements Section */}
-      <section style={{ padding: '70px 24px', background: 'rgba(11, 14, 20, 0.6)' }}>
+      <Reveal as="section" style={{ padding: '70px 24px', background: 'rgba(11, 14, 20, 0.6)' }}>
         <div className="container" style={{ display: 'flex', flexWrap: 'wrap', gap: '32px' }}>
           {/* Certifications Card */}
           <div className="glass-card" style={{ flex: '1 1 480px', padding: '36px', textAlign: 'left' }}>
@@ -324,10 +325,10 @@ export default function Home({ setCurrentPage }) {
                     }}
                   >
                     <div>
-                      <h4 style={{ color: 'var(--text-primary)', fontSize: '0.92rem', fontWeight: '500', fontFamily: 'var(--font-sans)' }}>
+                      <h4 style={{ color: 'var(--text-primary)', fontSize: '0.92rem', fontWeight: '500', fontFamily: 'var(--font-sans)', whiteSpace: 'pre-line' }}>
                         {cert.name}
                       </h4>
-                      <p style={{ color: 'var(--text-secondary)', fontSize: '0.78rem' }}>{cert.issuer}</p>
+                      <p style={{ color: 'var(--text-secondary)', fontSize: '0.78rem', whiteSpace: 'pre-line' }}>{cert.issuer}</p>
                     </div>
                     <span className="badge" style={{ flexShrink: 0 }}>{cert.year}</span>
                   </div>
@@ -363,17 +364,17 @@ export default function Home({ setCurrentPage }) {
                     <Award size={16} />
                   </div>
                   <div>
-                    <h4 style={{ color: 'var(--text-primary)', fontSize: '0.95rem', fontWeight: '600', fontFamily: 'var(--font-sans)' }}>
+                    <h4 style={{ color: 'var(--text-primary)', fontSize: '0.95rem', fontWeight: '600', fontFamily: 'var(--font-sans)', whiteSpace: 'pre-line' }}>
                       {award.title}
                     </h4>
-                    <p style={{ color: 'var(--accent-teal)', fontSize: '0.8rem', fontWeight: '500', marginTop: '2px' }}>{award.year}</p>
+                    <p style={{ color: 'var(--accent-teal)', fontSize: '0.8rem', fontWeight: '500', marginTop: '2px', whiteSpace: 'pre-line' }}>{award.year}</p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </Reveal>
     </div>
   );
 }

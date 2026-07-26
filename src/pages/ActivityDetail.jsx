@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowLeft, ImageIcon, ListChecks, Maximize2 } from 'lucide-react';
 import { activitiesData } from './Activities';
+import LazyImage from '../components/LazyImage';
 
 export default function ActivityDetail({ setCurrentPage, selectedActivityId }) {
   const activity = activitiesData.find((a) => a.id === selectedActivityId);
@@ -57,8 +58,8 @@ export default function ActivityDetail({ setCurrentPage, selectedActivityId }) {
         {/* Header */}
         <div style={{ textAlign: 'left', marginBottom: '36px' }}>
           <span className="badge" style={{ marginBottom: '12px' }}>{activity.period}</span>
-          <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '10px', lineHeight: '1.2' }}>{activity.org}</h1>
-          <p style={{ color: 'var(--accent-blue)', fontSize: '1rem', fontWeight: '500', fontFamily: 'var(--font-sans)' }}>{activity.role}</p>
+          <h1 style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '10px', lineHeight: '1.2', whiteSpace: 'pre-line' }}>{activity.org}</h1>
+          <p style={{ color: 'var(--accent-blue)', fontSize: '1rem', fontWeight: '500', fontFamily: 'var(--font-sans)', whiteSpace: 'pre-line' }}>{activity.role}</p>
         </div>
 
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '28px', textAlign: 'left' }}>
@@ -91,7 +92,7 @@ export default function ActivityDetail({ setCurrentPage, selectedActivityId }) {
               >
                 {allImages.length > 0 ? (
                   <>
-                    <img
+                    <LazyImage
                       src={allImages[activeImageIndex]}
                       alt={`${activity.org} gallery showcase`}
                       style={{

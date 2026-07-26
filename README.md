@@ -187,3 +187,37 @@ npm run preview
   (case-sensitive) dengan nama komponen di lucide-react.
 - **Port 5173 sudah dipakai** → Vite otomatis pindah ke port lain (5174, dst),
   cek pesan di terminal.
+
+---
+
+## ✅ Checklist sebelum deploy (fitur yang baru ditambahkan)
+
+Beberapa fitur baru butuh sedikit setup manual sebelum berfungsi penuh:
+
+1. **Form kontak (Formspree)** — buka `src/pages/Contact.jsx`, cari baris
+   `FORMSPREE_ENDPOINT` di bagian atas file, dan ganti dengan endpoint kamu
+   sendiri dari [formspree.io](https://formspree.io) (gratis, tinggal daftar
+   & buat form baru). Tanpa ini, form akan selalu gagal terkirim.
+
+2. **Domain di `robots.txt`, `sitemap.xml`, dan meta tag `og:image`** — semua
+   masih pakai placeholder `your-domain.com` / path relatif. Setelah situs
+   online, ganti dengan domain asli kamu supaya Google & preview link
+   (WhatsApp/LinkedIn) bekerja dengan benar:
+   - `public/robots.txt`
+   - `public/sitemap.xml`
+   - `index.html` → `og:image` dan `twitter:image` (ubah jadi URL absolut,
+     mis. `https://domainkamu.com/images/og-image.png`)
+
+3. **Analytics** — Vercel Analytics di `index.html` otomatis aktif kalau
+   di-deploy ke Vercel, tidak perlu setup apapun. Kalau kamu deploy ke
+   hosting lain, pakai Google Analytics: uncomment blok kode GA di
+   `index.html` dan ganti `G-XXXXXXXXXX` dengan Measurement ID kamu.
+
+4. **Dark/Light mode** — otomatis jalan, tersimpan di browser pengunjung
+   lewat `localStorage`. Tidak perlu setup apapun.
+
+5. **Sertifikat PDF (`MelvinCommittee.pdf`, ~6MB)** — file ini cukup besar
+   dan belum sempat dikompres otomatis di sini. Kalau mau lebih ringan,
+   kompres dulu lewat [smallpdf.com](https://smallpdf.com) sebelum
+   di-upload ulang ke `public/images/`.
+

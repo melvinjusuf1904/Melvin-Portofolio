@@ -1,6 +1,8 @@
 import React from 'react';
 import { Users, ArrowRight, ImageIcon } from 'lucide-react';
 import { ACTIVITIES } from '../data/portfolioData';
+import Reveal from '../components/Reveal';
+import LazyImage from '../components/LazyImage';
 
 // Re-exported so ActivityDetail.jsx can look up an activity by id,
 // same pattern used in myportofolio's Activities.jsx / ActivityDetail.jsx
@@ -23,16 +25,16 @@ export default function Activities({ setCurrentPage, setSelectedActivityId }) {
         </p>
 
         <div className="grid-responsive" style={{ gap: '28px' }}>
-          {activitiesData.map((activity) => (
+          {activitiesData.map((activity, idx) => (
+            <Reveal key={activity.id} delayMs={(idx % 3) * 100}>
             <div
-              key={activity.id}
               className="glass-card"
               style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}
             >
               {/* Image header */}
               <div className="project-image-container" style={{ margin: '16px', marginBottom: '0', border: activity.images?.[0] ? 'none' : '1px dashed #2A3142' }}>
                 {activity.images?.[0] ? (
-                  <img src={activity.images[0]} alt={activity.org} />
+                  <LazyImage src={activity.images[0]} alt={activity.org} />
                 ) : (
                   <div
                     style={{
@@ -77,10 +79,10 @@ export default function Activities({ setCurrentPage, setSelectedActivityId }) {
                   >
                     <Users size={18} />
                   </div>
-                  <h3 style={{ fontSize: '1.1rem', color: 'var(--text-primary)' }}>{activity.org}</h3>
+                  <h3 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', whiteSpace: 'pre-line' }}>{activity.org}</h3>
                 </div>
 
-                <p style={{ color: 'var(--accent-blue)', fontSize: '0.8rem', fontWeight: '600', marginBottom: '14px' }}>
+                <p style={{ color: 'var(--accent-blue)', fontSize: '0.8rem', fontWeight: '600', marginBottom: '14px', whiteSpace: 'pre-line' }}>
                   {activity.role}
                 </p>
 
@@ -99,6 +101,7 @@ export default function Activities({ setCurrentPage, setSelectedActivityId }) {
                 </button>
               </div>
             </div>
+            </Reveal>
           ))}
         </div>
       </div>

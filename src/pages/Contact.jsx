@@ -1,9 +1,41 @@
-import React from 'react';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
+import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
 import { Github, Linkedin, Instagram } from '../components/SocialIcons';
 import { PROFILE } from '../data/portfolioData';
 
+// Ganti FORMSPREE_ENDPOINT dengan endpoint kamu sendiri:
+// 1. Daftar gratis di https://formspree.io
+// 2. Buat form baru, kamu akan dapat URL seperti https://formspree.io/f/xxxxxxxx
+// 3. Tempel URL itu di bawah ini
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xxxxxxxx';
+
 export default function Contact() {
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle | sending | sent | error
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('sending');
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
+      if (res.ok) {
+        setStatus('sent');
+        setForm({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
   return (
     <div
       className="animate-fade-in"
@@ -16,6 +48,68 @@ export default function Contact() {
         <p style={{ color: 'var(--text-secondary)', textAlign: 'center', maxWidth: '500px', margin: '0 auto 44px', fontSize: '0.98rem', fontFamily: 'var(--font-sans)' }}>
           Feel free to reach out for research collaborations, project opportunities, or just to say hello!
         </p>
+
+        {/* Message Form */}
+        <div className="glass-card" style={{ padding: '36px', marginBottom: '24px' }}>
+          <h3 style={{ fontSize: '1.35rem', color: 'var(--text-primary)', marginBottom: '6px', textAlign: 'center' }}>Send a Message</h3>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', fontFamily: 'var(--font-sans)', textAlign: 'center', marginBottom: '24px' }}>
+            I'll get back to you as soon as possible
+          </p>
+
+          {status === 'sent' ? (
+            <div style={{ textAlign: 'center', padding: '24px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <CheckCircle2 size={40} color="var(--accent-teal)" />
+              <p style={{ color: 'var(--text-primary)', fontWeight: '600' }}>Message sent — thank you!</p>
+              <button onClick={() => setStatus('idle')} className="btn-gradient" style={{ marginTop: '8px' }}>
+                Send another message
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                value={form.name}
+                onChange={handleChange}
+                required
+                className="form-input"
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Your email"
+                value={form.email}
+                onChange={handleChange}
+                required
+                className="form-input"
+              />
+              <textarea
+                name="message"
+                placeholder="Your message"
+                value={form.message}
+                onChange={handleChange}
+                required
+                rows={5}
+                className="form-input"
+                style={{ resize: 'vertical', fontFamily: 'var(--font-sans)' }}
+              />
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className="btn-gradient"
+                style={{ justifyContent: 'center', opacity: status === 'sending' ? 0.7 : 1, cursor: status === 'sending' ? 'not-allowed' : 'pointer' }}
+              >
+                {status === 'sending' ? 'Sending...' : <>Send Message <Send size={16} /></>}
+              </button>
+              {status === 'error' && (
+                <p style={{ color: '#FF7A7A', fontSize: '0.82rem', textAlign: 'center' }}>
+                  Something went wrong — please try again, or email me directly below.
+                </p>
+              )}
+            </form>
+          )}
+        </div>
 
         <div className="glass-card" style={{ padding: '36px', display: 'flex', flexDirection: 'column', gap: '28px' }}>
           {/* Section Header */}
@@ -105,7 +199,7 @@ export default function Contact() {
               </div>
               <div style={{ textAlign: 'left' }}>
                 <h4 style={{ color: 'var(--text-secondary)', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Location</h4>
-                <p style={{ color: 'var(--text-primary)', fontWeight: '600', fontSize: '1rem' }}>{PROFILE.location}</p>
+                <p style={{ color: 'var(--text-primary)', fontWeight: '600', fontSize: '1rem', whiteSpace: 'pre-line' }}>{PROFILE.location}</p>
               </div>
             </div>
           </div>

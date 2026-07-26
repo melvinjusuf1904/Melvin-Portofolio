@@ -1,6 +1,8 @@
 import React from 'react';
 import { ArrowRight, ImageIcon } from 'lucide-react';
 import { PROJECTS } from '../data/portfolioData';
+import Reveal from '../components/Reveal';
+import LazyImage from '../components/LazyImage';
 
 // Re-exported so ProjectDetail.jsx can look up a project by id,
 // same pattern used in myportofolio's Projects.jsx / ProjectDetail.jsx
@@ -23,16 +25,16 @@ export default function Projects({ setCurrentPage, setSelectedProjectId }) {
         </p>
 
         <div className="grid-responsive">
-          {projectsData.map((project) => (
+          {projectsData.map((project, idx) => (
+            <Reveal key={project.id} delayMs={(idx % 3) * 100}>
             <div
-              key={project.id}
               className="glass-card"
               style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}
             >
               {/* Image top - uses asset imports when available, placeholder otherwise */}
               <div className="project-image-container" style={{ margin: '16px', marginBottom: '0', border: '1px dashed #2A3142' }}>
                 {project.image ? (
-                  <img src={project.image} alt={project.title} />
+                  <LazyImage src={project.image} alt={project.title} />
                 ) : (
                   <div
                     style={{
@@ -62,7 +64,7 @@ export default function Projects({ setCurrentPage, setSelectedProjectId }) {
 
               {/* Details */}
               <div style={{ padding: '20px 24px 24px', display: 'flex', flexDirection: 'column', flexGrow: 1, textAlign: 'left' }}>
-                <h3 style={{ fontSize: '1.15rem', color: 'var(--text-primary)', marginBottom: '6px' }}>{project.title}</h3>
+                <h3 style={{ fontSize: '1.15rem', color: 'var(--text-primary)', marginBottom: '6px', whiteSpace: 'pre-line' }}>{project.title}</h3>
                 <p style={{ color: 'var(--accent-blue)', fontSize: '0.8rem', fontWeight: '600', marginBottom: '14px' }}>
                   {project.subtitle}
                 </p>
@@ -93,6 +95,7 @@ export default function Projects({ setCurrentPage, setSelectedProjectId }) {
                 </button>
               </div>
             </div>
+            </Reveal>
           ))}
         </div>
       </div>
