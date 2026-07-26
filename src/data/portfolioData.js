@@ -68,47 +68,24 @@ export const AWARDS = [
 export const PROJECTS = [
   {
     id: 1,
-    category: "Category / Tag",
-    title: "Project Title",
-    subtitle: "Short project subtitle",
-    description: "Add a short 2-3 sentence description of this project here. Explain what it does and your role in it.",
+    category: "Research & Analysis",
+    title: "Equity Research 2026",
+    subtitle: "Equity Research on Indonesian Publicly Listed Companies",
+    description: "Conducted comprehensive equity research on publicly listed companies in the Indonesian stock market. Each report" +
+    "includes industry analysis, financial statement analysis, valuation, investment thesis, key risks, and a Buy/Hold/Sell recommendation" +
+    "based on fundamental analysis.",
     overview:
-      "Write a longer project overview here — the problem it solves, your role, the team you worked with, and what you built.",
-    techs: ["Tech 1", "Tech 2", "Tech 3"],
-    github: "",
+      "A collection of equity research reports on Indonesian listed companies, featuring fundamental analysis, valuation, investment thesis," +
+      "risk assessment, and investment recommendations. " +
+      "Companies Covered: " +
+      "PT Rukun Raharja Tbk (RAJA).",
+    techs: ["Market Analysis", "Market Research", "Equity Research", "Investments", "Report Writing"],
+    github: "https://github.com/melvinjusuf1904/Equity-Research-2026",
     live: "",
-    verified: false,
-    image: "",
-    youtube: "", // contoh: "https://www.youtube.com/watch?v=XXXXXXXXXXX" atau link youtu.be/embed
-  },
-  {
-    id: 2,
-    category: "Category / Tag",
-    title: "Project Title",
-    subtitle: "Short project subtitle",
-    description: "Add a short 2-3 sentence description of this project here. Explain what it does and your role in it.",
-    overview:
-      "Write a longer project overview here — the problem it solves, your role, the team you worked with, and what you built.",
-    techs: ["Tech 1", "Tech 2", "Tech 3"],
-    github: "",
-    live: "",
-    verified: false,
-    image: "",
-    youtube: "", // contoh: "https://www.youtube.com/watch?v=XXXXXXXXXXX" atau link youtu.be/embed
-  },
-  {
-    id: 3,
-    category: "Category / Tag",
-    title: "Project Title",
-    subtitle: "Short project subtitle",
-    description: "Add a short 2-3 sentence description of this project here. Explain what it does and your role in it.",
-    overview:
-      "Write a longer project overview here — the problem it solves, your role, the team you worked with, and what you built.",
-    techs: ["Tech 1", "Tech 2", "Tech 3"],
-    github: "",
-    live: "",
-    verified: false,
-    image: "",
+    verified: true,
+    image: [
+      "/images/equity2026.jpeg",
+    ],
     youtube: "", // contoh: "https://www.youtube.com/watch?v=XXXXXXXXXXX" atau link youtu.be/embed
   },
 ];
