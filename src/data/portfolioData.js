@@ -79,7 +79,7 @@ export const PROJECTS = [
       "A collection of equity research reports on Indonesian listed companies, featuring fundamental analysis, valuation, investment thesis, " +
       "risk assessment, and investment recommendations.\n\n" +
       "Companies Covered:\n" +
-      "- PT Rukun Raharja Tbk (RAJA)",
+      "PT Rukun Raharja Tbk (RAJA).",
     techs: ["Market Analysis", "Market Research", "Equity Research", "Investments", "Report Writing"],
     github: "https://github.com/melvinjusuf1904/Equity-Research-2026",
     live: "",
@@ -107,11 +107,11 @@ export const ACTIVITIES = [
     ],
     notes:
       "As a Binusian Gaming Activist, I contributed to organizing and supporting gaming-related events and" +
-      "competitive activities within BINUS University.\n\n I collaborated with committee members across different" +
+      "competitive activities within BINUS University. I collaborated with committee members across different" +
       "divisions to ensure smooth event execution, participant engagement, and effective team coordination." +
       "As the Head of Tournament Committee – BINUS MLBB 2026, I led the planning and execution of a" +
       "university-level Mobile Legends tournament, managing the event from initial planning to post-event" +
-      "evaluation.\n\n My role involved coordinating committee members, designing tournament operations," +
+      "evaluation. My role involved coordinating committee members, designing tournament operations," +
       "solving on-site issues, and ensuring the event was delivered successfully.",
     focusAreas: [
       "Planned and executed a university-level Mobile Legends tournament from concept to completion.",
@@ -139,12 +139,12 @@ export const ACTIVITIES = [
       "Collaborated to Conduct Market and Operational Analysis."
     ],
     notes:
-      "Stepping into the Unknown: My First Business Case Experience at CaseConnect 2026!🚀\n\n" +
-      "They say growth begins at the end of your comfort zone, and this past week, I truly felt that.\n\n" +
+      "Stepping into the Unknown: My First Business Case Experience at CaseConnect 2026!🚀" +
+      "They say growth begins at the end of your comfort zone, and this past week, I truly felt that." +
       "Representing Team StockQueue, we dived deep into the challenges of the coffee industry. Our mission? To craft a strategic solution for Brewtique Indonesia." +
-      "We proposed a strategy centered on 'Premium, Digital, and Sustainability,' aiming to turn innovation into real impact in a highly competitive market.\n\n" +
+      "We proposed a strategy centered on 'Premium, Digital, and Sustainability,' aiming to turn innovation into real impact in a highly competitive market." +
       "Coming from a background where I usually analyze stock charts and market data, tackling a real-world business restructuring case" +
-      "was both challenging and eye-opening. It required a different kind of analytical thinking-one that balances strategic vision with operational reality.",
+      "was both challenging and eye-opening. It required a different kind of analytical thinking—one that balances strategic vision with operational reality.",
     focusAreas: [
       "Strategic Business Restructing & Innovation.", 
       "Cross-Disclipinary Analytical Thinking.",
@@ -169,7 +169,7 @@ export const ACTIVITIES = [
     notes:
       "Honored to be among the Top 10 Finalists of the borneo Online Trading Competition 2026!🚀" +
       "A huge shoutout to my teammate @GarrethDavies (https://lnkd.in/ge3CxUCR), for the incredible collaboration and strategic" +
-      "alignment throughtout the trading period.\n\n" +
+      "alignment throughtout the trading period." +
       "I am thrilled to share that my team, StockQueue, has secured the 8th position in this prestigious competition!" +
       "One of the key drivers behind our performance was our strategic positioning in $BRPT (PT Barito Pasific Tbk), " +
       "which we identified as the most solid issuer throughout this period.",
