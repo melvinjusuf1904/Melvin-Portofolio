@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { ArrowLeft, ImageIcon, Calendar, Download, Loader2 } from 'lucide-react';
 import { equityResearchData } from './EquityResearch';
 import LazyImage from '../components/LazyImage';
-import { exportElementToPdf } from '../utils/exportPdf';
+import { exportReportToPdf } from '../utils/exportPdf';
 
 const RECOMMENDATION_COLORS = {
   BUY: { bg: 'rgba(94, 234, 212, 0.14)', color: 'var(--accent-teal)', border: 'rgba(94, 234, 212, 0.35)' },
@@ -62,7 +62,7 @@ export default function EquityResearchDetail({ setCurrentPage, selectedEquityId 
     setIsExporting(true);
     try {
       const filename = `${report.company.replace(/[^a-z0-9]+/gi, '-')}-Equity-Research.pdf`;
-      await exportElementToPdf(reportRef.current, filename);
+      await exportReportToPdf(report, filename);
     } catch (err) {
       console.error(err);
       alert('Sorry, the PDF could not be generated. Please try again.');
