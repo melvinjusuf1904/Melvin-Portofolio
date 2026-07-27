@@ -199,14 +199,14 @@ Beberapa fitur baru butuh sedikit setup manual sebelum berfungsi penuh:
    sendiri dari [formspree.io](https://formspree.io) (gratis, tinggal daftar
    & buat form baru). Tanpa ini, form akan selalu gagal terkirim.
 
-2. **Domain di `robots.txt`, `sitemap.xml`, dan meta tag `og:image`** — semua
-   masih pakai placeholder `your-domain.com` / path relatif. Setelah situs
-   online, ganti dengan domain asli kamu supaya Google & preview link
-   (WhatsApp/LinkedIn) bekerja dengan benar:
-   - `public/robots.txt`
-   - `public/sitemap.xml`
-   - `index.html` → `og:image` dan `twitter:image` (ubah jadi URL absolut,
-     mis. `https://domainkamu.com/images/og-image.png`)
+2. **Meta tag `og:image` di `index.html`** — masih pakai path relatif
+   (`/images/og-image.png`). Setelah situs online, sebaiknya ganti jadi URL
+   absolut (mis. `https://domainkamu.com/images/og-image.png`) supaya
+   preview link di WhatsApp/LinkedIn selalu tampil benar.
+
+   > **Catatan:** `robots.txt` dan `sitemap.xml` untuk SEO sengaja belum
+   > dipakai di project ini (dihapus untuk sementara). Kalau nanti mau
+   > diaktifkan lagi, tinggal minta dibuatkan ulang.
 
 3. **Analytics** — Vercel Analytics di `index.html` otomatis aktif kalau
    di-deploy ke Vercel, tidak perlu setup apapun. Kalau kamu deploy ke
