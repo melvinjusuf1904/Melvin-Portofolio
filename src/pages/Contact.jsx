@@ -7,7 +7,7 @@ import { PROFILE } from '../data/portfolioData';
 // 1. Daftar gratis di https://formspree.io
 // 2. Buat form baru, kamu akan dapat URL seperti https://formspree.io/f/xxxxxxxx
 // 3. Tempel URL itu di bawah ini
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xxxxxxxx';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mbdnqyll';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
