@@ -12,6 +12,8 @@
 // code-split out of the main bundle and only downloaded (once, then cached)
 // the first time someone visits an Equity Research report page.
 
+import { parseContentBlocks } from './richText';
+
 const PAGE_WIDTH = 595.28;  // A4 portrait, in points
 const PAGE_HEIGHT = 841.89;
 const MARGIN = 48;
@@ -117,30 +119,112 @@ export async function exportReportToPdf(report, filename = 'report.pdf') {
     return w;
   };
 
-  const drawWrappedText = (text, options = {}) => {
+  // Word-wraps one paragraph's pre-parsed lines at CONTENT_WIDTH, honoring
+  // *italic*, **bold**, and ***bold italic*** runs (see src/utils/richText.js).
+  // Wrapping is done word-by-word (rather than jsPDF's splitTextToSize)
+  // because a single line can mix normal/italic/bold runs, which need
+  // separate width measurements.
+  //
+  // `lines` is an array of "manual lines" (each a list of {text, italic, bold}
+  // segments — see parseContentBlocks). Each manual line is word-wrapped
+  // independently and always ends with a forced break, so a "\n" in the
+  // source always starts a new PDF line even if there was room left on the
+  // current one; long manual lines still wrap across multiple PDF lines.
+  const fontStyleFor = (tok) => {
+    if (tok.bold && tok.italic) return 'bolditalic';
+    if (tok.bold) return 'bold';
+    if (tok.italic) return 'italic';
+    return 'normal';
+  };
+
+  const drawParagraph = (lines, options = {}) => {
     const {
       fontSize = 9.3,
       color = COLORS.textSecondary,
       lineHeight = 14,
       font = 'helvetica',
-      style = 'normal',
     } = options;
-    pdf.setFont(font, style);
-    pdf.setFontSize(fontSize);
     const [r, g, b] = hexToRgb(color);
-    pdf.setTextColor(r, g, b);
 
-    // Preserve the paragraph breaks (\n\n) from the source data.
-    const paragraphs = String(text).split('\n\n');
-    paragraphs.forEach((para, i) => {
-      const lines = pdf.splitTextToSize(para.replace(/\n/g, ' '), CONTENT_WIDTH);
-      lines.forEach((line) => {
-        ensureSpace(lineHeight);
-        pdf.text(line, MARGIN, y);
-        y += lineHeight;
+    const measure = (word, style) => {
+      pdf.setFont(font, style);
+      pdf.setFontSize(fontSize);
+      return pdf.getTextWidth(word);
+    };
+
+    const spaceWidth = measure(' ', 'normal');
+
+    let line = [];
+    let lineWidth = 0;
+
+    const flushLine = () => {
+      if (line.length === 0) return;
+      ensureSpace(lineHeight);
+      let x = MARGIN;
+      pdf.setTextColor(r, g, b);
+      line.forEach((tok) => {
+        const style = fontStyleFor(tok);
+        pdf.setFont(font, style);
+        pdf.setFontSize(fontSize);
+        pdf.text(tok.word, x, y);
+        x += measure(tok.word, style) + spaceWidth;
       });
-      if (i < paragraphs.length - 1) y += 8;
+      y += lineHeight;
+      line = [];
+      lineWidth = 0;
+    };
+
+    lines.forEach((segments) => {
+      // Flatten this manual line's segments into { word, italic, bold } tokens.
+      const tokens = [];
+      segments.forEach((seg) => {
+        seg.text.split(' ').forEach((word) => {
+          if (word !== '') tokens.push({ word, italic: seg.italic, bold: seg.bold });
+        });
+      });
+
+      tokens.forEach((tok) => {
+        const w = measure(tok.word, fontStyleFor(tok));
+        const extra = (line.length > 0 ? spaceWidth : 0) + w;
+        if (lineWidth + extra > CONTENT_WIDTH && line.length > 0) {
+          flushLine();
+          lineWidth = w;
+          line = [tok];
+        } else {
+          lineWidth += extra;
+          line.push(tok);
+        }
+      });
+
+      // Force a break at the end of every manual line, even an empty one
+      // (e.g. two consecutive "\n"s that weren't a full blank-line paragraph
+      // break), so the manual line break is always visible in the PDF.
+      if (tokens.length === 0) {
+        ensureSpace(lineHeight);
+        y += lineHeight;
+      } else {
+        flushLine();
+      }
     });
+  };
+
+  // A bold, slightly-larger in-section heading (from a "## " line — see
+  // src/utils/richText.js). Users can add as many of these as they like,
+  // in any field, wherever they want a sub-heading inside a section.
+  const drawSubtitle = (text, isFirst) => {
+    ensureSpace(24);
+    y += isFirst ? 0 : 6;
+    pdf.setFont('helvetica', 'bold');
+    pdf.setFontSize(10.5);
+    const [r, g, b] = hexToRgb(COLORS.textPrimary);
+    pdf.setTextColor(r, g, b);
+    const lines = pdf.splitTextToSize(text, CONTENT_WIDTH);
+    lines.forEach((line) => {
+      ensureSpace(15);
+      pdf.text(line, MARGIN, y);
+      y += 15;
+    });
+    y += 2;
   };
 
   const drawSection = (title, content) => {
@@ -152,8 +236,16 @@ export async function exportReportToPdf(report, filename = 'report.pdf') {
     pdf.setTextColor(r, g, b);
     pdf.text(title, MARGIN, y);
     y += 18;
-    drawWrappedText(content);
-    y += 8;
+
+    const blocks = parseContentBlocks(content);
+    blocks.forEach((block, i) => {
+      if (block.type === 'subtitle') {
+        drawSubtitle(block.text, i === 0);
+      } else {
+        drawParagraph(block.lines);
+        y += 8;
+      }
+    });
   };
 
   const drawCard = (drawInner, minHeight) => {

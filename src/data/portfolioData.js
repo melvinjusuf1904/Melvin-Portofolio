@@ -71,26 +71,36 @@ export const AWARDS = [
 export const EQUITY_RESEARCH = [
   {
     id: 1,
-    image: "/images/equity2026.jpeg",
+    image: "/images/raja.jpeg",
     company: "PT Rukun Raharja Tbk",
     ticker: "RAJA",
-    researchDate: "January 2026",
-    initialPrice: "IDR 685",
-    targetPrice: "IDR 920",
+    researchDate: "17 March 2026",
+    initialPrice: "IDR 3.410",
+    targetPrice: "IDR 8.000",
     recommendation: "BUY",
 
     investmentThesis:
-      "We initiate coverage on PT Rukun Raharja Tbk (RAJA) with a BUY recommendation. The company is well-positioned to " +
-      "benefit from Indonesia's growing natural gas distribution and infrastructure demand, supported by long-term " +
-      "take-or-pay contracts that provide stable, recurring cash flow.\n\n" +
-      "[Ganti paragraf ini dengan thesis investasi lengkap dari laporan kamu — mengapa kamu merekomendasikan Buy/Hold/Sell, " +
-      "dan apa katalis utama pertumbuhannya.]",
+      "RAJA memiliki potensi kenaikan harga saham yang menarik didukung oleh ekspansi jaringan gas dan proyek baru, " +
+      "stabilitas penndapatan berbasis kontrak, dan potensi peningkatan valuasi sektor energi. " +
+      "Target harga (12 bulan): Rp7.000 – Rp8.000 dengan potensi kenaikan: +70% hingga +135%.\n",
 
     industryOverview:
-      "The Indonesian oil & gas midstream and gas distribution sector continues to expand, driven by government energy " +
-      "transition initiatives and rising domestic gas demand from industrial users.\n\n" +
-      "[Ganti dengan ringkasan industri dari laporan kamu — ukuran pasar, tren regulasi, kompetitor utama, dan posisi " +
-      "perusahaan di dalam industri.]",
+      "## Struktur Industri & Rantai Nilai\n" +
+      "Industri ga bumi di Indonesia bergerak dalam struktur yang terikat ketat oleh regulasi (*heavily regulated*). " +
+      "Rantai nilainya terbagi menjadi tiga pilar: **Hulu** (Eksplorasi), **Midstream** (Transmisi/Pipa), dan **Hilir** (Distribusi ke ujung pengguna). " +
+      "Dalam struktur ini, pemain infrastruktur seperti **RAJA** memiliki posisi strategis sebagi 'jembatan' yang menhubungkan sumber gas di hulu dengan pusat permintaan industri di Jawa dan Sumatera" +
+      "Ketergantungan sektor manufaktur dan pembangkit listrik terhadao pipa transmisi menciptakan hambatan masuk (*barrier to entry*)\n\n" +
+
+      "## Lanskap Persaingan & Parit Ekonomi\n" +
+      "Tingkat persaingan di sub-sektor transmisi gas cenderung rendah karena sifat industrinya yang merupakan **monopoli alami** (*natural monopoly*). " +
+      "Pembangunan pipa gas memerlukan belanja modal (capex) yang massif dan perizinan lahan yang kompleks. " +
+      "Persaingan lebih bersifat kolaboratif dan terbagi berdasarkan wilayah geografis. " +
+      "Keunggulan kompetitif **RAJA** terletak pada kepemilikan aset di jalur distribusi kunci yang sudah terintegrasi dengan Kawasan industri (KI) utama, " +
+      "memberikan “parit ekonomi” (*economic moat*) yang kuat dibandingkan competitor yang baru masuk." +
+      "Dibandingkan dengan pemain besar seperti **PGAS**, **RAJA** masih memiliki skala infrastruktur yang lebih kecil. Namun, hal ini justru mencerminkan potensi pertumbuhan yang signifikan, terutama di Tengah ekspansi jaringan gas nasional dan meningkatnya permintaan domestik.\n\n" +
+      
+      "## Ukuran Pasar & Permintaan Domestik\n" +
+      "",
 
     incomeStatement:
       "Revenue has shown consistent year-over-year growth, supported by capacity expansion and stable tariff structures. " +

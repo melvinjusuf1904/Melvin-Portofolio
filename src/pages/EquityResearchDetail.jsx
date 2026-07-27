@@ -3,6 +3,7 @@ import { ArrowLeft, ImageIcon, Calendar, Download, Loader2 } from 'lucide-react'
 import { equityResearchData } from './EquityResearch';
 import LazyImage from '../components/LazyImage';
 import { exportReportToPdf } from '../utils/exportPdf';
+import { parseContentBlocks } from '../utils/richText';
 
 const RECOMMENDATION_COLORS = {
   BUY: { bg: 'rgba(94, 234, 212, 0.14)', color: 'var(--accent-teal)', border: 'rgba(94, 234, 212, 0.35)' },
@@ -30,14 +31,46 @@ function RecommendationBadge({ recommendation, large }) {
   );
 }
 
-// One report section: a heading + a paragraph that supports line breaks.
+// One report section: a heading, then any mix of body paragraphs and
+// "## Subtitle" lines and *italic* emphasis (see src/utils/richText.js).
 function ReportSection({ title, content }) {
+  const blocks = parseContentBlocks(content);
   return (
     <div style={{ marginBottom: '28px' }}>
       <h3 style={{ fontSize: '1.15rem', color: 'var(--text-primary)', marginBottom: '10px' }}>{title}</h3>
-      <p style={{ color: 'var(--text-secondary)', fontSize: '0.93rem', lineHeight: '1.8', fontFamily: 'var(--font-sans)', whiteSpace: 'pre-line' }}>
-        {content}
-      </p>
+      {blocks.map((block, i) =>
+        block.type === 'subtitle' ? (
+          <h4
+            key={i}
+            style={{
+              fontSize: '1rem',
+              fontWeight: '700',
+              color: 'var(--text-primary)',
+              fontFamily: 'var(--font-sans)',
+              margin: i === 0 ? '0 0 8px' : '16px 0 8px'
+            }}
+          >
+            {block.text}
+          </h4>
+        ) : (
+          <p
+            key={i}
+            style={{ color: 'var(--text-secondary)', fontSize: '0.93rem', lineHeight: '1.8', fontFamily: 'var(--font-sans)', marginBottom: '10px' }}
+          >
+            {block.lines.map((segments, li) => (
+              <React.Fragment key={li}>
+                {li > 0 && <br />}
+                {segments.map((seg, j) => {
+                  if (seg.bold && seg.italic) return <strong key={j}><em>{seg.text}</em></strong>;
+                  if (seg.bold) return <strong key={j}>{seg.text}</strong>;
+                  if (seg.italic) return <em key={j}>{seg.text}</em>;
+                  return <React.Fragment key={j}>{seg.text}</React.Fragment>;
+                })}
+              </React.Fragment>
+            ))}
+          </p>
+        )
+      )}
     </div>
   );
 }
