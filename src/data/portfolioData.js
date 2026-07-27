@@ -64,6 +64,65 @@ export const AWARDS = [
   { title: "[University] Top 4 Finalist Rector Cup MLBB by BINUS University", year: "2025" },
 ];
 
+// Template kosong — isi laporan Equity Research kamu sendiri di sini.
+// Tips: pakai "\n\n" di dalam field text panjang (investmentThesis, industryOverview,
+// incomeStatement, balanceSheet, cashFlow, forecast, valuation, risk) untuk ganti paragraf.
+// recommendation hanya boleh salah satu dari: "BUY", "HOLD", "SELL"
+export const EQUITY_RESEARCH = [
+  {
+    id: 1,
+    image: "/images/equity2026.jpeg",
+    company: "PT Rukun Raharja Tbk",
+    ticker: "RAJA",
+    researchDate: "January 2026",
+    initialPrice: "IDR 685",
+    targetPrice: "IDR 920",
+    recommendation: "BUY",
+
+    investmentThesis:
+      "We initiate coverage on PT Rukun Raharja Tbk (RAJA) with a BUY recommendation. The company is well-positioned to " +
+      "benefit from Indonesia's growing natural gas distribution and infrastructure demand, supported by long-term " +
+      "take-or-pay contracts that provide stable, recurring cash flow.\n\n" +
+      "[Ganti paragraf ini dengan thesis investasi lengkap dari laporan kamu — mengapa kamu merekomendasikan Buy/Hold/Sell, " +
+      "dan apa katalis utama pertumbuhannya.]",
+
+    industryOverview:
+      "The Indonesian oil & gas midstream and gas distribution sector continues to expand, driven by government energy " +
+      "transition initiatives and rising domestic gas demand from industrial users.\n\n" +
+      "[Ganti dengan ringkasan industri dari laporan kamu — ukuran pasar, tren regulasi, kompetitor utama, dan posisi " +
+      "perusahaan di dalam industri.]",
+
+    incomeStatement:
+      "Revenue has shown consistent year-over-year growth, supported by capacity expansion and stable tariff structures. " +
+      "Operating margins remain healthy relative to industry peers.\n\n" +
+      "[Ganti dengan ringkasan/angka Income Statement dari laporan kamu — Revenue, EBITDA, Net Income beberapa tahun terakhir.]",
+
+    balanceSheet:
+      "The company maintains a manageable debt-to-equity ratio with sufficient liquidity to fund ongoing infrastructure " +
+      "projects.\n\n" +
+      "[Ganti dengan ringkasan Balance Sheet dari laporan kamu — Total Assets, Total Liabilities, Equity, rasio-rasio kunci.]",
+
+    cashFlow:
+      "Operating cash flow remains positive and sufficient to cover both capital expenditures and dividend distributions.\n\n" +
+      "[Ganti dengan ringkasan Cash Flow dari laporan kamu — Operating, Investing, Financing cash flow.]",
+
+    forecast:
+      "We forecast continued revenue growth over the next three years, driven by new pipeline capacity and gradual " +
+      "margin improvement.\n\n" +
+      "[Ganti dengan proyeksi keuangan dari laporan kamu — asumsi pertumbuhan, proyeksi revenue/EBITDA/Net Income.]",
+
+    valuation:
+      "Using a combination of Discounted Cash Flow (DCF) and relative valuation (P/E, EV/EBITDA) against industry peers, " +
+      "we arrive at a target price of IDR 920 per share.\n\n" +
+      "[Ganti dengan metodologi & hasil valuasi lengkap dari laporan kamu.]",
+
+    risk:
+      "Key risks include regulatory changes in gas pricing policy, project execution delays, and commodity price " +
+      "volatility.\n\n" +
+      "[Ganti dengan daftar risiko utama dari laporan kamu.]",
+  },
+];
+
 // Template kosong — isi proyek kamu sendiri di sini
 export const PROJECTS = [
   {

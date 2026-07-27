@@ -47,6 +47,12 @@
   </head>
   <body>
     <div id="root"></div>
+
+    <!--
+      "Download PDF" on Equity Research report pages (src/pages/EquityResearchDetail.jsx,
+      src/utils/exportPdf.js) is powered by the html2canvas + jspdf npm packages,
+      loaded on demand via dynamic import() — no CDN dependency, no backend needed.
+    -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

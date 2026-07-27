@@ -8,6 +8,7 @@ export default function Header({ currentPage, setCurrentPage }) {
   const navItems = [
     { id: 'home', label: 'Home' },
     { id: 'projects', label: 'My Projects' },
+    { id: 'equity-research', label: 'Equity Research' },
     { id: 'activities', label: 'Activities' },
     { id: 'contact', label: "Let's Connect" }
   ];
