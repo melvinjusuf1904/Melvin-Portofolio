@@ -19,7 +19,7 @@ export const EDUCATION = [
     school: "BINUS University",
     degree: "Bachelor of Science, Computer Science",
     period: "2025 – Present",
-    grade: "GPA: 3.20/4.00",
+    grade: "GPA: 3.46/4.00",
   },
   {
     school: "SMA F. Tandean Tebing Tinggi",
@@ -59,7 +59,7 @@ export const CERTS = [
 ];
 
 export const AWARDS = [
-  { title: "[National] Top 10 Finalist Borneo Online Trading Competition (BOTC) by KSPM GI BEI UPR", year: "2026" },
+  { title: "[National] Finalist Borneo Online Trading Competition (BOTC) by KSPM GI BEI UPR", year: "2026" },
   { title: "[National] Finalist CaseConnect Mini Case Competition by DWDG", year: "2026" },
   { title: "[University] Top 4 Finalist Rector Cup MLBB by BINUS University", year: "2025" },
 ];
@@ -85,22 +85,30 @@ export const EQUITY_RESEARCH = [
       "Target harga (12 bulan): Rp7.000 – Rp8.000 dengan potensi kenaikan: +70% hingga +135%.\n",
 
     industryOverview:
-      "## Struktur Industri & Rantai Nilai\n" +
+      "## - Struktur Industri & Rantai Nilai\n" +
       "Industri gas bumi di Indonesia bergerak dalam struktur yang terikat ketat oleh regulasi (*heavily regulated*). " +
       "Rantai nilainya terbagi menjadi tiga pilar: **Hulu** (Eksplorasi), **Midstream** (Transmisi/Pipa), dan **Hilir** (Distribusi ke ujung pengguna). " +
       "Dalam struktur ini, pemain infrastruktur seperti **RAJA** memiliki posisi strategis sebagi 'jembatan' yang menhubungkan sumber gas di hulu dengan pusat permintaan industri di Jawa dan Sumatera" +
-      "Ketergantungan sektor manufaktur dan pembangkit listrik terhadao pipa transmisi menciptakan hambatan masuk (*barrier to entry*)\n\n" +
+      "Ketergantungan sektor manufaktur dan pembangkit listrik terhadao pipa transmisi menciptakan hambatan masuk (*barrier to entry*)\n" +
 
-      "## Lanskap Persaingan & Parit Ekonomi\n" +
+      "## - Lanskap Persaingan & Parit Ekonomi\n" +
       "Tingkat persaingan di sub-sektor transmisi gas cenderung rendah karena sifat industrinya yang merupakan **monopoli alami** (*natural monopoly*). " +
       "Pembangunan pipa gas memerlukan belanja modal (capex) yang massif dan perizinan lahan yang kompleks. " +
       "Persaingan lebih bersifat kolaboratif dan terbagi berdasarkan wilayah geografis. " +
       "Keunggulan kompetitif **RAJA** terletak pada kepemilikan aset di jalur distribusi kunci yang sudah terintegrasi dengan Kawasan industri (KI) utama, " +
       "memberikan “parit ekonomi” (*economic moat*) yang kuat dibandingkan competitor yang baru masuk." +
-      "Dibandingkan dengan pemain besar seperti **PGAS**, **RAJA** masih memiliki skala infrastruktur yang lebih kecil. Namun, hal ini justru mencerminkan potensi pertumbuhan yang signifikan, terutama di Tengah ekspansi jaringan gas nasional dan meningkatnya permintaan domestik.\n\n" +
+      "Dibandingkan dengan pemain besar seperti **PGAS**, **RAJA** masih memiliki skala infrastruktur yang lebih kecil. Namun, hal ini justru mencerminkan potensi pertumbuhan yang signifikan, terutama di Tengah ekspansi jaringan gas nasional dan meningkatnya permintaan domestik.\n" +
       
-      "## Ukuran Pasar & Permintaan Domestik\n" +
-      "",
+      "## - Ukuran Pasar & Permintaan Domestik\n" +
+      "Pasar gas domestik Indonesia diproyeksikan terus membesar seiring dengan kebijakan pemerintah untuk mengurangi ketergantungan pada impor BBM dan Batubara. " +
+      "Berdasarkan Neraca Gas Bumi Indonesia, terdapat pergeseran signifikan di mana Lokasi gas untuk kebutuhan dalam negeri kini mendominasi dibandingkan ekspor. " +
+      "Permintaan utama datang dari sektor pupuk, kelistrikan, dan industri umum yang mencari efisiensi biaya energi serta kepatuhan terhadap standar emisi yang lebih ketat.\n" +
+      
+      "## - Tren & Prospek Pertumbuhan: Menuju Net Zero\n" +
+      "Sektor ini berada dalam tren “Gas-to-Power”. Sebagai energi transisi, gas bumi dianggap paling siap menggantikan Batubara karena emisi " +
+      "karbonnya yang jauh lebih rendah. Prospek pertumbuhan industri ini didorong oleh: Integrasi Infrastruktur Nasional: Penyelesaiian proyek " +
+      "transmisi gas (seperti Pipa Cisem dan Dumai-Sei Mangkei) yang akan menciptakan konektivitas gas dari ujung Sumatera hingga Jawa dan " +
+      "Hilirisasi Industri: Pertumbuhan Kawasan industry baru diluar Jawa yang membutuhkan pasokan gas stabil untuk operasional pabrik.\n",
 
     incomeStatement:
       "Revenue has shown consistent year-over-year growth, supported by capacity expansion and stable tariff structures. " +
@@ -122,14 +130,48 @@ export const EQUITY_RESEARCH = [
       "[Ganti dengan proyeksi keuangan dari laporan kamu — asumsi pertumbuhan, proyeksi revenue/EBITDA/Net Income.]",
 
     valuation:
-      "Using a combination of Discounted Cash Flow (DCF) and relative valuation (P/E, EV/EBITDA) against industry peers, " +
-      "we arrive at a target price of IDR 920 per share.\n\n" +
-      "[Ganti dengan metodologi & hasil valuasi lengkap dari laporan kamu.]",
+      "Kami mengeluarkan rekomendasi **BUY** untuk **RAJA** berdasarkan analisis valuasi yang ketat menggunakan empat pendekatan berbeda: DCF, **relative valuation**, DDM, dan **sum of the parts**. " +
+      "Kami menetapkan bobot 100%pada pendekatan DCF karena kemampuannya yang unggul dalam menangkap nilai intrinsik jangka panjang perusahaan melalui perkiraan arus kas yang terperinci, " +
+      "wawasan operasional dari proyek infrastruktur baru (seperti CISEM II), dan proyeksi keuangan yang komprehensif. " +
+      "Pendekatan lainnya juga mengonfirmasi rekomendasi beli kami untuk RAJA, mengingat harga pasar saat ini masih berada di area bawah dari rentang nilai wajar yang diproyeksikan.\n " +
+      
+      "## - Valuasi DCF: IDR 8.000, Potensi Kenaikan 134,6%\n" +
+      "**Pendapatan:** Volume distribusi gas dan tarif transmisi rata-rata menjadi penggerak utama pendapatan, yang kami proyeksikan akan mengantarkan nilai ekuitas perusahaan ke target IDR 8.000 per lembar saham.\n\n" +
+      "**Volume Distribusi:** Kami memproyeksikan volume pengiriman gas sebesar 290–315 MMSCFD secara tahunan pada periode 2026–27E, dan mencapai target agresif **400 MMSCFD pada tahun 2030**\n\n" +
+      "Faktor pendorong utama meliputi:\n" +
+      "**a)** Momentum berkelanjutan RAJA yang tercermin dalam rekor volume distribusi sebesar 270 MMSCFD pada tahun 2025 (+3,8% y/y);\n" +
+      "**b)** Ekspansi infrastruktur pipa yang agresif (PSN 2026), termasuk kontribusi penuh dari pipa operasional baru;\n" +
+      "**c)** Peningkatan permintaan dari kawasan industri di Jawa Tengah dan Sumatera seiring dengan selesainya interkoneksi pipa nasional; dan\n" +
+      "**d)** Suplai gas yang memadai dari akuisisi blok hulu baru.\n\n" +
+      "Prakiraan ini memberikan dasar yang kuat bagi **Upside 134,6%** yang kami proyeksikan, didukung oleh arus kas masa depan yang terdiskon secara optimal dalam model DCF kami.\n\n" +
+      "**Harga Transaksi Rata-rata:** Tarif transmisi rata-rata tetap stabil di tengah kebijakan HGBT . Kami mempertahankan asumsi tarif konservatif, dengan ekspektasi penyesuaian tarif pada segmen non-HGBT yang meningkat " +
+      "sejalan dengan inflasi, sehingga menjaga top-line tetap kuat untuk mencapai valuasi target.\n\n" +
+      "**Biaya & Margin:** Kami memproyeksikan efisiensi biaya melalui skala ekonomi pipa terintegrasi. Meskipun **Margin Laba Kotor** diproyeksikan sedikit melandai ke kisaran 22%-20% pada 2030 akibat biaya pemeliharaan infrastruktur, " +
+      "pertumbuhan volume distribusi yang eksponensial (dari 270 ke 400 MMSCFD) akan jauh melampaui kenaikan biaya tersebut, sehingga menghasilkan lonjakan laba bersih yang signifikan bagi pemegang saham.\n" +
+      
+      "## - Net Working Capital\n" +
+      "**Persediaan (Inventory):** Mewakili komponen modal kerja yang signifikan, terdiri dari suku cadang infrastruktur pipa, material pemeliharaan, serta sediaan gas dalam pipa (line pack). Tingkat persediaan diselaraskan " +
+      "dengan standar industri energi midstream dan dikaitkan dengan proyeksi volume distribusi tahun depan guna menjamin kontinuitas operasional pada jalur transmisi utama seperti CISEM dan DUSEM.\n\n" +
+      "**Piutang dan Utang (Receivables and Payables):** Dihitung menggunakan hari perputaran (turnover days), piutang tetap terjaga secara efisien sejalan dengan kontrak pembayaran dari pelanggan industri besar dan PLN, sementara utang dagang dikelola untuk memastikan " +
+      "efisiensi arus kas dan hubungan pemasok yang kuat di sektor hulu. Asumsi modal kerja ini secara akurat mencerminkan siklus operasional infrastruktur gas RAJA.\n\n" +
+      "**Pendapatan Ditangguhkan (Deferred Revenue):** Dimodelkan secara konsisten dengan praktik pengakuan pendapatan kontrak transmisi jangka panjang. Hal ini menangkap perbedaan waktu antara arus kas masuk dari " +
+      "amandemen kontrak atau biaya pemesanan kapasitas (capacity booking) dengan pengakuan pendapatan berdasarkan volume gas yang benar-benar dialirkan.\n",
 
     risk:
-      "Key risks include regulatory changes in gas pricing policy, project execution delays, and commodity price " +
-      "volatility.\n\n" +
-      "[Ganti dengan daftar risiko utama dari laporan kamu.]",
+      "## - Risiko Pasar: VOlatilitas Permintaan\n" +
+      "Kinerja RAJA sangat berkorelasi dengan aktivitas manufaktur domestik. Risiko pasar muncul dari potensi pelambatan indeks **Purchasing Managers’ Index (PMI)** pada sektor-sektor kunci seperti keramik, sarung tangan karet, dan baja yang merupakan konsumen gas utama. " +
+      "Selain itu, percepatan adopsi energi terbarukan (EBT) yang didukung oleh pendanaan internasional (seperti skema JETP) dapat menciptakan tekanan kompetitif. Jika biaya teknologi penyimpanan energi (battery " +
+      "storage) turun lebih cepat dari perkiraan, substitusi gas bumi ke listrik berbasis EBT di kawasan industri dapat mengurangi utilisasi pipa distribusi RAJA dalam jangka panjang." +
+
+      "## - Risiko Politik: Dinamika Transisi Kepemimpinan\n" +
+      "Sebagai pemain infrastruktur yang banyak terlibat dalam **Proyek Strategis Nasional (PSN)**, RAJA terpapar pada risiko siklus politik. " +
+      "Perubahan prioritas pembangunan pada kabinet baru atau pergeseran fokus anggaran negara dapat memengaruhi kecepatan penyelesaian infrastruktur interkoneksi gas (seperti pipa transmisi antar pulau). " +
+      "Selain itu, risiko geopolitik global yang memengaruhi rantai pasok energi dunia dapat memicu intervensi domestik berupa kebijakan kewajiban pasok pasar dalam negeri (Domestic Market Obligation/DMO) yang lebih ketat, yang berpotensi membatasi fleksibilitas perusahaan dalam mengoptimalkan margin penjualan gas.\n\n" +
+      
+      "## - Risiko Operasional\n" +
+      "Kinerja masa depan perusahaan sangat bergantung pada penyelesaian proyek strategis nasional, seperti **Pipa Cisem Tahap II.** " +
+      "Risiko operasional muncul dari potensi hambatan teknis di lapangan, perizinan lahan yang kompleks, atau kendala rantai pasok material yang dapat menggeser jadwal operasional komersial (Commercial Operation Date). " +
+      "Penundaan integrasi ini tidak hanya menunda realisasi pendapatan tetapi juga meningkatkan beban biaya bunga (capitalized interest) yang dapat menggerus profitabilitas jangka pendek.\n",
   },
 ];
 
