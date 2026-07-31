@@ -114,20 +114,26 @@ export const EQUITY_RESEARCH = [
       "Revenue has shown consistent year-over-year growth, supported by capacity expansion and stable tariff structures. " +
       "Operating margins remain healthy relative to industry peers.\n\n" +
       "[Ganti dengan ringkasan/angka Income Statement dari laporan kamu — Revenue, EBITDA, Net Income beberapa tahun terakhir.]",
+    // Taruh file Excel/PDF Income Statement di public/files/, lalu isi path-nya di sini.
+    // Contoh: incomeStatementFile: "/files/income-statement.xlsx",
+    incomeStatementFile: "", // "/files/income-statement.xlsx" atau "/files/income-statement.pdf"
 
     balanceSheet:
       "The company maintains a manageable debt-to-equity ratio with sufficient liquidity to fund ongoing infrastructure " +
       "projects.\n\n" +
       "[Ganti dengan ringkasan Balance Sheet dari laporan kamu — Total Assets, Total Liabilities, Equity, rasio-rasio kunci.]",
+    balanceSheetFile: "", // "/files/balance-sheet.xlsx" atau "/files/balance-sheet.pdf"
 
     cashFlow:
       "Operating cash flow remains positive and sufficient to cover both capital expenditures and dividend distributions.\n\n" +
       "[Ganti dengan ringkasan Cash Flow dari laporan kamu — Operating, Investing, Financing cash flow.]",
+    cashFlowFile: "", // "/files/cash-flow.xlsx" atau "/files/cash-flow.pdf"
 
     forecast:
       "We forecast continued revenue growth over the next three years, driven by new pipeline capacity and gradual " +
       "margin improvement.\n\n" +
       "[Ganti dengan proyeksi keuangan dari laporan kamu — asumsi pertumbuhan, proyeksi revenue/EBITDA/Net Income.]",
+    forecastFile: "", // "/files/forecast.xlsx" atau "/files/forecast.pdf"
 
     valuation:
       "Kami mengeluarkan rekomendasi **BUY** untuk **RAJA** berdasarkan analisis valuasi yang ketat menggunakan empat pendekatan berbeda: DCF, **relative valuation**, DDM, dan **sum of the parts**. " +

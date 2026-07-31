@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ArrowLeft, ImageIcon, Calendar, Download, Loader2 } from 'lucide-react';
+import { ArrowLeft, ImageIcon, Calendar, Download, Loader2, FileSpreadsheet, FileText, Eye } from 'lucide-react';
 import { equityResearchData } from './EquityResearch';
 import LazyImage from '../components/LazyImage';
 import { exportReportToPdf } from '../utils/exportPdf';
@@ -71,6 +71,111 @@ function ReportSection({ title, content }) {
           </p>
         )
       )}
+    </div>
+  );
+}
+
+// Reads a file field which can be either a plain string path
+// (e.g. "/files/income-statement.xlsx") or an object { url, name }.
+// Works with both Excel (.xlsx/.xls/.csv) and PDF files.
+function getFileMeta(file) {
+  if (!file) return null;
+  const url = typeof file === 'string' ? file : file.url;
+  if (!url) return null;
+  const name = (typeof file === 'object' && file.name) || url.split('/').pop();
+  const ext = url.split('.').pop().toLowerCase();
+  return {
+    url,
+    name,
+    isExcel: ['xlsx', 'xls', 'csv'].includes(ext),
+    isPdf: ext === 'pdf',
+  };
+}
+
+// Attachment card shown under Income Statement / Balance Sheet / Cash Flow /
+// Forecast so a viewer can open (PDF) or download (Excel/PDF) the source file.
+// If no file is set for that section, shows a placeholder like the other
+// "add image" placeholders in this project.
+function FinancialFileAttachment({ file, label }) {
+  const meta = getFileMeta(file);
+
+  if (!meta) {
+    return (
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '10px',
+          padding: '12px 16px',
+          borderRadius: '10px',
+          border: '1px dashed #2A3142',
+          color: '#3D4659',
+          fontSize: '0.82rem',
+          fontFamily: 'var(--font-heading)',
+          marginTop: '-8px',
+          marginBottom: '20px'
+        }}
+      >
+        <FileSpreadsheet size={18} />
+        <span>add {label.toLowerCase()} file (Excel or PDF)</span>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className="glass-card"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '10px',
+        padding: '14px 18px',
+        marginTop: '-8px',
+        marginBottom: '20px'
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
+        {meta.isExcel ? (
+          <FileSpreadsheet size={20} style={{ color: 'var(--accent-teal)', flexShrink: 0 }} />
+        ) : (
+          <FileText size={20} style={{ color: 'var(--accent-blue)', flexShrink: 0 }} />
+        )}
+        <span
+          style={{
+            fontSize: '0.88rem',
+            color: 'var(--text-primary)',
+            fontFamily: 'var(--font-sans)',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap'
+          }}
+        >
+          {meta.name}
+        </span>
+      </div>
+      <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
+        {meta.isPdf && (
+          <a
+            href={meta.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-gradient"
+            style={{ padding: '6px 14px', fontSize: '0.8rem' }}
+          >
+            <Eye size={15} /> View
+          </a>
+        )}
+        <a
+          href={meta.url}
+          download={meta.name}
+          className="btn-gradient"
+          style={{ padding: '6px 14px', fontSize: '0.8rem', opacity: meta.isPdf ? 0.85 : 1 }}
+        >
+          <Download size={15} /> Download
+        </a>
+      </div>
     </div>
   );
 }
@@ -238,9 +343,13 @@ export default function EquityResearchDetail({ setCurrentPage, selectedEquityId 
             <ReportSection title="Investment Thesis" content={report.investmentThesis} />
             <ReportSection title="Industry Overview" content={report.industryOverview} />
             <ReportSection title="Income Statement" content={report.incomeStatement} />
+            <FinancialFileAttachment file={report.incomeStatementFile} label="Income Statement" />
             <ReportSection title="Balance Sheet" content={report.balanceSheet} />
+            <FinancialFileAttachment file={report.balanceSheetFile} label="Balance Sheet" />
             <ReportSection title="Cash Flow" content={report.cashFlow} />
+            <FinancialFileAttachment file={report.cashFlowFile} label="Cash Flow" />
             <ReportSection title="Forecast" content={report.forecast} />
+            <FinancialFileAttachment file={report.forecastFile} label="Forecast" />
             <ReportSection title="Valuation" content={report.valuation} />
             <div style={{ marginBottom: 0 }}>
               <ReportSection title="Risk" content={report.risk} />
