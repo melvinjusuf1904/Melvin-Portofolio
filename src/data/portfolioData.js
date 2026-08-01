@@ -79,6 +79,8 @@ export const EQUITY_RESEARCH = [
     targetPrice: "IDR 8.000",
     recommendation: "BUY",
 
+    reportFile: "/files/PT Rukun Raharja Tbk (RAJA)/Report_RAJA_StockQueue_MelvinJusuf.pdf",
+
     investmentThesis:
       "RAJA memiliki potensi kenaikan harga saham yang menarik didukung oleh ekspansi jaringan gas dan proyek baru, " +
       "stabilitas penndapatan berbasis kontrak, dan potensi peningkatan valuasi sektor energi. " +
@@ -111,12 +113,13 @@ export const EQUITY_RESEARCH = [
       "Hilirisasi Industri: Pertumbuhan Kawasan industry baru diluar Jawa yang membutuhkan pasokan gas stabil untuk operasional pabrik.\n",
 
     incomeStatement:
-      "Revenue has shown consistent year-over-year growth, supported by capacity expansion and stable tariff structures. " +
-      "Operating margins remain healthy relative to industry peers.\n\n" +
-      "[Ganti dengan ringkasan/angka Income Statement dari laporan kamu — Revenue, EBITDA, Net Income beberapa tahun terakhir.]",
+      "## - Pendapatan & Profitabilitas\n " +
+      "Total Pendapatan sempat menurun dari Rp2.487 M (2016) ke titik terendah Rp1.405 M (2021), lalu **rebound kuat** ke Rp4.394 M di 2025 — pertumbuhan signifikan terutama sejak 2022 (naik dari Rp1.885 M → Rp4.394 M dalam 4 tahun).\n\n" +
+      "Laba Kotor relatif stabil di kisaran Rp220–330 M selama 2016–2021, kemudian **melonjak tajam** ke Rp1.006–1.189 M sejak 2023, menandakan perbaikan margin yang cukup besar.\n\n" +
+      "",
     // Taruh file Excel/PDF Income Statement di public/files/, lalu isi path-nya di sini.
     // Contoh: incomeStatementFile: "/files/income-statement.xlsx",
-    incomeStatementFile: "", // "/files/income-statement.xlsx" atau "/files/income-statement.pdf"
+    incomeStatementFile: "/files/PT Rukun Raharja Tbk (RAJA)/(Revision)_RAJA_Income_Statement.xlsx", // "/files/income-statement.xlsx" atau "/files/income-statement.pdf"
 
     balanceSheet:
       "The company maintains a manageable debt-to-equity ratio with sufficient liquidity to fund ongoing infrastructure " +

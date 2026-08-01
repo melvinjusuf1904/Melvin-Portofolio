@@ -340,6 +340,7 @@ export default function EquityResearchDetail({ setCurrentPage, selectedEquityId 
 
           {/* Report body */}
           <div className="glass-card" style={{ padding: '32px', textAlign: 'left' }}>
+            <FinancialFileAttachment file={report.reportFile} label="Full Report" />
             <ReportSection title="Investment Thesis" content={report.investmentThesis} />
             <ReportSection title="Industry Overview" content={report.industryOverview} />
             <ReportSection title="Income Statement" content={report.incomeStatement} />
