@@ -1,7 +1,91 @@
 import React, { useState } from 'react';
-import { ArrowLeft, ImageIcon, ListChecks, Maximize2 } from 'lucide-react';
+import { ArrowLeft, ImageIcon, ListChecks, Maximize2, Paperclip, FileSpreadsheet, FileText, Eye, Download } from 'lucide-react';
 import { activitiesData } from './Activities';
 import LazyImage from '../components/LazyImage';
+
+// Reads a file entry which can be either a plain string path
+// (e.g. "/files/business-case-competition/proposal.pdf") or an object
+// { url, name, label }. Works with both Excel (.xlsx/.xls/.csv) and PDF files.
+// This mirrors the pattern used in EquityResearchDetail.jsx so the same
+// "attach an Excel/PDF file" behavior is available on Activities too.
+function getActivityFileMeta(file) {
+  if (!file) return null;
+  const url = typeof file === 'string' ? file : file.url;
+  if (!url) return null;
+  const name = (typeof file === 'object' && file.name) || url.split('/').pop();
+  const label = (typeof file === 'object' && file.label) || name;
+  const ext = url.split('.').pop().toLowerCase();
+  return {
+    url,
+    name,
+    label,
+    isExcel: ['xlsx', 'xls', 'csv'].includes(ext),
+    isPdf: ext === 'pdf',
+  };
+}
+
+// Attachment card for a single Excel/PDF file linked to an activity.
+// Renders nothing if the file entry is empty/invalid, so activities that
+// don't have files yet simply show no attachments section.
+function ActivityFileAttachment({ file }) {
+  const meta = getActivityFileMeta(file);
+  if (!meta) return null;
+
+  return (
+    <div
+      className="glass-card"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        gap: '10px',
+        padding: '12px 16px'
+      }}
+    >
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
+        {meta.isExcel ? (
+          <FileSpreadsheet size={19} style={{ color: 'var(--accent-teal)', flexShrink: 0 }} />
+        ) : (
+          <FileText size={19} style={{ color: 'var(--accent-blue)', flexShrink: 0 }} />
+        )}
+        <span
+          style={{
+            fontSize: '0.85rem',
+            color: 'var(--text-primary)',
+            fontFamily: 'var(--font-sans)',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap'
+          }}
+        >
+          {meta.label}
+        </span>
+      </div>
+      <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
+        {meta.isPdf && (
+          <a
+            href={meta.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-gradient"
+            style={{ padding: '6px 14px', fontSize: '0.78rem' }}
+          >
+            <Eye size={14} /> View
+          </a>
+        )}
+        <a
+          href={meta.url}
+          download={meta.name}
+          className="btn-gradient"
+          style={{ padding: '6px 14px', fontSize: '0.78rem', opacity: meta.isPdf ? 0.85 : 1 }}
+        >
+          <Download size={14} /> Download
+        </a>
+      </div>
+    </div>
+  );
+}
 
 export default function ActivityDetail({ setCurrentPage, selectedActivityId }) {
   const activity = activitiesData.find((a) => a.id === selectedActivityId);
@@ -189,6 +273,21 @@ export default function ActivityDetail({ setCurrentPage, selectedActivityId }) {
                 </>
               )}
             </div>
+
+            {/* Documents / Attachments (Excel or PDF). Only shows up when an
+                activity has a non-empty `files` array — see src/data/activities/_template.js */}
+            {activity.files && activity.files.length > 0 && (
+              <div className="glass-card" style={{ padding: '32px' }}>
+                <h3 style={{ fontSize: '1.15rem', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '18px' }}>
+                  <Paperclip size={17} style={{ color: 'var(--accent-blue)' }} /> Documents
+                </h3>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                  {activity.files.map((f, i) => (
+                    <ActivityFileAttachment key={i} file={f} />
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

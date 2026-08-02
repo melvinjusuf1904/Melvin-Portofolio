@@ -28,6 +28,8 @@ const BINUSIAN_GAMING = {
       "Conducted post-event evaluation, documentation, and reporting to improve future events.",
       "Strengthened leadership, teamwork, project management, and problem-solving skills through organizing large-scale gaming events.",
     ],
+    // Lampiran file Excel/PDF (opsional). Lihat contoh di business-case-competition.js.
+    files: [],
 };
 
 export default BINUSIAN_GAMING;

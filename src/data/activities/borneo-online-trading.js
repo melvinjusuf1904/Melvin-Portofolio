@@ -27,6 +27,8 @@ const BORNEO_ONLINE_TRADING = {
       "Strategic Collaboration & Teamwork.",
       "Capital Market Resilience & Growth."
     ],
+    // Lampiran file Excel/PDF (opsional). Lihat contoh di business-case-competition.js.
+    files: [],
 };
 
 export default BORNEO_ONLINE_TRADING;

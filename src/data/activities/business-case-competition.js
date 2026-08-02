@@ -27,6 +27,15 @@ const BUSINESS_CASE_COMPETITION = {
       "Market Competitive Strategy.",
       "High-Performing Team Synergy."
     ],
+    // Lampiran file Excel/PDF untuk Business Case Competition (mis. proposal, deck, financial model).
+    // 1. Taruh file di public/files/business-case-competition/, misalnya:
+    //    public/files/business-case-competition/proposal.pdf
+    // 2. Tambahkan entrinya di array di bawah ini, contoh:
+    //    { url: "/files/business-case-competition/proposal.pdf", label: "Business Proposal" },
+    //    { url: "/files/business-case-competition/financial-model.xlsx", label: "Financial Model" },
+    files: [
+      {url: "/files/caseconnect2026/MCC_CaseConnect2026_StockQueue.pdf", label: "CaseConnect 2026"}
+    ],
 };
 
 export default BUSINESS_CASE_COMPETITION;

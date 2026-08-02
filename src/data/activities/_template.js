@@ -20,6 +20,14 @@ const ACTIVITY_NAME = {
     "Skill atau area fokus 1.",
     "Skill atau area fokus 2.",
   ],
+  // (Opsional) Lampiran file Excel/PDF, tampil di bagian "Documents" pada halaman detail.
+  // 1. Taruh file di public/files/<nama-activity>/, misalnya: public/files/hackathon-2026/proposal.pdf
+  // 2. Isi array di bawah ini — kosongkan (files: []) kalau belum ada file.
+  // files: [
+  //   { url: "/files/hackathon-2026/proposal.pdf", label: "Proposal" },
+  //   { url: "/files/hackathon-2026/laporan.xlsx", label: "Laporan Keuangan" },
+  // ],
+  files: [],
 };
 
 export default ACTIVITY_NAME;
