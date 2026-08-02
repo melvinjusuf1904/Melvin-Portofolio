@@ -11,6 +11,26 @@ const RECOMMENDATION_COLORS = {
   SELL: { bg: 'rgba(248, 113, 113, 0.14)', color: '#F87171', border: 'rgba(248, 113, 113, 0.35)' },
 };
 
+// Parses strings like "IDR 3.410" (dot as thousands separator) into a number.
+function parsePriceValue(price) {
+  if (typeof price !== 'string') return NaN;
+  const digitsOnly = price.replace(/[^0-9]/g, '');
+  return digitsOnly ? parseInt(digitsOnly, 10) : NaN;
+}
+
+function getUpsideDownside(initialPrice, targetPrice) {
+  const initial = parsePriceValue(initialPrice);
+  const target = parsePriceValue(targetPrice);
+  if (!initial || !target || isNaN(initial) || isNaN(target)) return null;
+  const pct = ((target - initial) / initial) * 100;
+  return {
+    pct,
+    isUpside: pct >= 0,
+    label: pct >= 0 ? 'Upside' : 'Downside',
+    display: `${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%`
+  };
+}
+
 function RecommendationBadge({ recommendation, large }) {
   const colors = RECOMMENDATION_COLORS[recommendation] || RECOMMENDATION_COLORS.HOLD;
   return (
@@ -330,6 +350,26 @@ export default function EquityResearchDetail({ setCurrentPage, selectedEquityId 
               </p>
               <p style={{ fontSize: '1.3rem', color: 'var(--accent-teal)', fontWeight: '700' }}>{report.targetPrice}</p>
             </div>
+            {(() => {
+              const upsideDownside = getUpsideDownside(report.initialPrice, report.targetPrice);
+              if (!upsideDownside) return null;
+              return (
+                <div>
+                  <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+                    {upsideDownside.label}
+                  </p>
+                  <p
+                    style={{
+                      fontSize: '1.3rem',
+                      fontWeight: '700',
+                      color: upsideDownside.isUpside ? 'var(--accent-teal)' : '#F87171'
+                    }}
+                  >
+                    {upsideDownside.display}
+                  </p>
+                </div>
+              );
+            })()}
             <div>
               <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '6px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 Recommendation
