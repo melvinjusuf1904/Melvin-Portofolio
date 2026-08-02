@@ -14,6 +14,26 @@ const RECOMMENDATION_COLORS = {
   SELL: { bg: 'rgba(248, 113, 113, 0.14)', color: '#F87171', border: 'rgba(248, 113, 113, 0.35)' },
 };
 
+// Parses strings like "IDR 3.410" (dot as thousands separator) into a number.
+function parsePriceValue(price) {
+  if (typeof price !== 'string') return NaN;
+  const digitsOnly = price.replace(/[^0-9]/g, '');
+  return digitsOnly ? parseInt(digitsOnly, 10) : NaN;
+}
+
+function getUpsideDownside(initialPrice, targetPrice) {
+  const initial = parsePriceValue(initialPrice);
+  const target = parsePriceValue(targetPrice);
+  if (!initial || !target || isNaN(initial) || isNaN(target)) return null;
+  const pct = ((target - initial) / initial) * 100;
+  return {
+    pct,
+    isUpside: pct >= 0,
+    label: pct >= 0 ? 'Upside' : 'Downside',
+    display: `${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%`
+  };
+}
+
 function RecommendationBadge({ recommendation }) {
   const colors = RECOMMENDATION_COLORS[recommendation] || RECOMMENDATION_COLORS.HOLD;
   return (
@@ -98,7 +118,7 @@ export default function EquityResearch({ setCurrentPage, setSelectedEquityId }) 
                   <div
                     style={{
                       display: 'grid',
-                      gridTemplateColumns: '1fr 1fr',
+                      gridTemplateColumns: '1fr 1fr 1fr',
                       gap: '10px',
                       marginBottom: '20px',
                       padding: '14px',
@@ -107,18 +127,44 @@ export default function EquityResearch({ setCurrentPage, setSelectedEquityId }) 
                       border: '1px solid var(--glass-border)'
                     }}
                   >
-                    <div>
-                      <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                        Initial Price
-                      </p>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <div style={{ height: '30px', display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
+                        <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em', lineHeight: '1.3' }}>
+                          Initial Price
+                        </p>
+                      </div>
                       <p style={{ fontSize: '0.95rem', color: 'var(--text-primary)', fontWeight: '600' }}>{report.initialPrice}</p>
                     </div>
-                    <div>
-                      <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', marginBottom: '4px', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
-                        Target Price
-                      </p>
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <div style={{ height: '30px', display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
+                        <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em', lineHeight: '1.3' }}>
+                          Target Price
+                        </p>
+                      </div>
                       <p style={{ fontSize: '0.95rem', color: 'var(--accent-teal)', fontWeight: '600' }}>{report.targetPrice}</p>
                     </div>
+                    {(() => {
+                      const upsideDownside = getUpsideDownside(report.initialPrice, report.targetPrice);
+                      if (!upsideDownside) return null;
+                      return (
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                          <div style={{ height: '30px', display: 'flex', alignItems: 'center', marginBottom: '4px' }}>
+                            <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.04em', lineHeight: '1.3' }}>
+                              {upsideDownside.label}
+                            </p>
+                          </div>
+                          <p
+                            style={{
+                              fontSize: '0.95rem',
+                              fontWeight: '600',
+                              color: upsideDownside.isUpside ? 'var(--accent-teal)' : '#F87171'
+                            }}
+                          >
+                            {upsideDownside.display}
+                          </p>
+                        </div>
+                      );
+                    })()}
                   </div>
 
                   <button
