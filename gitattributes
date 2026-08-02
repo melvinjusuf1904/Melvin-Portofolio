@@ -1,0 +1,22 @@
+# Pastikan Git memperlakukan file-file ini sebagai BINARY murni,
+# tidak diubah line ending-nya (LF/CRLF) — ini penyebab file .xlsx/.pdf
+# jadi corrupt setelah di-push ke GitHub / di-deploy ke Vercel.
+
+*.xlsx binary
+*.xls binary
+*.xlsm binary
+*.doc binary
+*.docx binary
+*.pdf binary
+
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.webp binary
+*.ico binary
+
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
