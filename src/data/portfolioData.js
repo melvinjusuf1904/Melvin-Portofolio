@@ -79,7 +79,8 @@ export const EQUITY_RESEARCH = [
     targetPrice: "IDR 8.000",
     recommendation: "BUY",
 
-    reportFile: "/files/PT Rukun Raharja Tbk (RAJA)/Report_RAJA_StockQueue_MelvinJusuf.pdf",
+    reportFile: "/public/files/PT Rukun Raharja Tbk (RAJA)/Report_RAJA_StockQueue_MelvinJusuf.pdf",
+    reportStatementFile: "/public/files/PT Rukun Raharja Tbk (RAJA)/(Revision)_RAJA_Financial_Statement_&_Valuation.xlsx",
 
     investmentThesis:
       "RAJA memiliki potensi kenaikan harga saham yang menarik didukung oleh ekspansi jaringan gas dan proyek baru, " +
@@ -114,29 +115,92 @@ export const EQUITY_RESEARCH = [
 
     incomeStatement:
       "## - Pendapatan & Profitabilitas\n " +
-      "Total Pendapatan sempat menurun dari Rp2.487 M (2016) ke titik terendah Rp1.405 M (2021), lalu **rebound kuat** ke Rp4.394 M di 2025 — pertumbuhan signifikan terutama sejak 2022 (naik dari Rp1.885 M → Rp4.394 M dalam 4 tahun).\n\n" +
-      "Laba Kotor relatif stabil di kisaran Rp220–330 M selama 2016–2021, kemudian **melonjak tajam** ke Rp1.006–1.189 M sejak 2023, menandakan perbaikan margin yang cukup besar.\n\n" +
-      "",
+      "1. Total Pendapatan sempat menurun dari Rp2.487 M (2016) ke titik terendah Rp1.405 M (2021), lalu **rebound kuat** ke Rp4.394 M di 2025 — pertumbuhan signifikan terutama sejak 2022 (naik dari Rp1.885 M → Rp4.394 M dalam 4 tahun).\n" +
+      "2. Laba Kotor relatif stabil di kisaran Rp220–330 M selama 2016–2021, kemudian **melonjak tajam** ke Rp1.006–1.189 M sejak 2023, menandakan perbaikan margin yang cukup besar.\n" +
+      "3. Laba Usaha (Operating Profit) mengikuti pola serupa: rendah di 2017–2021 (Rp26–184 M), lalu naik drastis ke Rp733–782 M di 2023–2024, sedikit turun ke Rp772 M di 2025.\n" +
+      
+      "## - Bottom Line\n" +
+      "1. Laba Bersih Tahun Berjalan tumbuh dari Rp103 M (2016) menjadi Rp577 M (2025), dengan lonjakan besar mulai 2022 (Rp161 M) hingga 2025.\n" +
+      "2. EPS naik dari Rp21,3 (2016) sempat anjlok ke Rp4,7 (2020, dampak pandemi), lalu pulih kuat menjadi Rp106,1 di 2025 — level tertinggi dalam periode ini.\n" +
+      
+      "## - Poin Perhatian\n" +
+      "1. Beban Keuangan meningkat cukup besar sejak 2023 (dari ~Rp40 M ke ~Rp166 M), sejalan dengan ekspansi yang didanai utang.\n" +
+      "2. Ada kontribusi laba dari Entitas Asosiasi yang signifikan di 2025 (Rp325 M), turut mendorong Laba Sebelum Pajak.\n",
     // Taruh file Excel/PDF Income Statement di public/files/, lalu isi path-nya di sini.
     // Contoh: incomeStatementFile: "/files/income-statement.xlsx",
-    incomeStatementFile: "/files/PT Rukun Raharja Tbk (RAJA)/(Revision)_RAJA_Income_Statement.xlsx", // "/files/income-statement.xlsx" atau "/files/income-statement.pdf"
+    incomeStatementFile: "/public/files/PT Rukun Raharja Tbk (RAJA)/(Revision)_RAJA_Income_Statement.xlsx", // "/files/income-statement.xlsx" atau "/files/income-statement.pdf"
 
     balanceSheet:
-      "The company maintains a manageable debt-to-equity ratio with sufficient liquidity to fund ongoing infrastructure " +
-      "projects.\n\n" +
-      "[Ganti dengan ringkasan Balance Sheet dari laporan kamu — Total Assets, Total Liabilities, Equity, rasio-rasio kunci.]",
-    balanceSheetFile: "", // "/files/balance-sheet.xlsx" atau "/files/balance-sheet.pdf"
+      "## - Pertumbuhan Neraca\n" +
+      "1. Total Aset melonjak dari Rp1.951 M (2016) menjadi Rp7.986 M (2025), dengan akselerasi signifikan di 2020–2025 (CAGR ~15% p.a., dan tumbuh 49% YoY di 2025 saja — dari Rp5.354 M ke Rp7.986 M).\n" +
+      "2. Pertumbuhan didorong terutama oleh Aset Tidak Lancar (Rp3.886 M → Rp5.685 M di 2025), konsisten dengan ekspansi infrastruktur/kapasitas bisnis gas & energi RAJA.\n" +
+      
+      "## - Likuiditas\n" +
+      "1. Kas & setara kas naik tajam di 2025 menjadi Rp1.519 M (dari Rp717 M di 2024, lebih dari 2x lipat) — sinyal posisi kas yang jauh lebih kuat, kemungkinan terkait pendanaan baru atau divestasi.\n" +
+      "2. Piutang usaha & aset lancar lainnya juga naik seiring skala bisnis.\n" +
+      
+      "## - Struktur Permodalan & Leverage\n" +
+      "1. Total Liabilitas naik dari Rp722 M (2016) ke Rp3.707 M (2025), dengan lonjakan besar mulai 2021 (utang bank jangka panjang jadi kontributor utama: Rp1.809 M di 2025).\n" +
+      "2. Debt-to-Equity membaik dari ~1,13x (2023) menjadi ~0,87x (2025) karena pertumbuhan ekuitas lebih cepat dari liabilitas — indikasi leverage masih terkelola meski nominal utang terus bertambah.\n" +
+      
+      "## - Ekuitas\n" +
+      "1. Total Ekuitas melonjak dari Rp2.777 M (2024) ke Rp4.279 M (2025), naik 54% YoY.\n" +
+      "2. Saldo laba tumbuh stabil (Rp1.704 M → Rp1.858 M), mencerminkan profitabilitas yang konsisten.\n" +
+      "3. 'Ekuitas Lainnya' melonjak drastis dari Rp89 M (2024) ke Rp985 M (2025) — ini item non-standar yang perlu dicek lebih lanjut (kemungkinan revaluasi aset, translasi mata uang, atau instrumen ekuitas baru), karena kontribusinya besar terhadap kenaikan ekuitas total.\n" +
+      "4. Kepentingan Non-Pengendali (NCI) juga naik signifikan (Rp432 M → Rp716 M), sejalan dengan konsolidasi anak usaha.\n",
+    balanceSheetFile: "/public/files/PT Rukun Raharja Tbk (RAJA)/(Revision)_RAJA_Balance_Sheet.xlsx", // "/files/balance-sheet.xlsx" atau "/files/balance-sheet.pdf"
 
     cashFlow:
-      "Operating cash flow remains positive and sufficient to cover both capital expenditures and dividend distributions.\n\n" +
-      "[Ganti dengan ringkasan Cash Flow dari laporan kamu — Operating, Investing, Financing cash flow.]",
-    cashFlowFile: "", // "/files/cash-flow.xlsx" atau "/files/cash-flow.pdf"
+      "## - Arus Kas Operasi (CFO)\n" +
+      "1. CFO tumbuh sangat kuat: dari negatif Rp51 M (2021) menjadi Rp883 M (2025) — tren naik konsisten sejak 2022 (Rp184 M → Rp674 M di 2023 → Rp773 M di 2024 → Rp883 M di 2025).\n" +
+      "2. Penerimaan dari pelanggan naik tajam (Rp1.913 M di 2022 → Rp4.480 M di 2025), mencerminkan pertumbuhan pendapatan operasional yang solid.\n" +
+      "3. Beban bunga dan pajak yang dibayar juga meningkat seiring skala bisnis (bunga -Rp153 M, pajak -Rp258 M di 2025) — konsisten dengan kenaikan utang dan profitabilitas.\n" +
+      
+      "## - Arus Kas Investasi (CFI)\n" +
+      "2025 adalah tahun capex & aksi korporasi besar: CFI -Rp695 M, didorong oleh:\n" +
+      "1. Belanja modal (capex) -Rp745 M — lompatan besar dari -Rp164 M (2024)\n" +
+      "2. Akuisisi -Rp399 M\n" +
+      "3. Refundable deposit -Rp209 M, penempatan investasi jangka panjang -Rp212 M (gabungan)\n" +
+      "4. Namun ada **penerimaan divestasi Rp946 M** — item besar yang menjelaskan lonjakan kas di neraca 2025 (sejalan dengan temuan di Balance Sheet sebelumnya).\n\n" +
+      
+      "Pola historis: CFI mayoritas negatif (capex-heavy), dengan pengecualian 2017 (+Rp552 M, ada pencairan uang muka investasi besar).\n" +
+
+      "## - Arus Kas Pendanaan (CFF)\n" +
+      "CFF 2025 positif Rp666 M — kebalikan dari 2024 (-Rp558 M), didorong oleh:\n" +
+      "1. Penerimaan utang bank Rp2.089 M vs pembayaran -Rp1.454 M (net +Rp635 M)\n" +
+      "2. Right issue/penawaran umum saham +Rp226 M dan setoran modal non-pengendali +Rp123 M\n" +
+      "3. Diimbangi pembayaran dividen -Rp251 M (ke pemegang saham) dan -Rp59 M (ke NCI anak usaha)\n" +
+
+      "Pembayaran dividen naik signifikan dari tahun ke tahun (-Rp69 M di 2023 → -Rp162 M di 2024 → -Rp251 M di 2025), menandakan komitmen dividen yang meningkat seiring pertumbuhan laba.\n",
+    cashFlowFile: "/public/files/PT Rukun Raharja Tbk (RAJA)/(Revision)_RAJA_Cash_Flow.xlsx", // "/files/cash-flow.xlsx" atau "/files/cash-flow.pdf"
 
     forecast:
-      "We forecast continued revenue growth over the next three years, driven by new pipeline capacity and gradual " +
-      "margin improvement.\n\n" +
-      "[Ganti dengan proyeksi keuangan dari laporan kamu — asumsi pertumbuhan, proyeksi revenue/EBITDA/Net Income.]",
-    forecastFile: "", // "/files/forecast.xlsx" atau "/files/forecast.pdf"
+      "## - Asumsi Kunci\n" +
+      "1. Pertumbuhan pendapatan: 21,2% (2026F, berbasis Q1 aktual + top-down), lalu 32,6% p.a. (2027F–2030F, mengikuti CAGR historis 3 tahun)\n" +
+      "2. Margin laba kotor stabil di 28,9%, beban usaha 8,7% dari pendapatan\n" +
+      "3. Capex 12,8% dari pendapatan; OCF 20,3% dari pendapatan\n" +
+      "4. Payout ratio dividen 51,7% dari laba bersih tahun sebelumnya\n" +
+      "5. Total debt diasumsikan flat di Rp2.547 M (tidak ada pertumbuhan debt baru)\n" +
+      "6. Tarif pajak efektif 32,2%; porsi laba untuk pemilik entitas induk 86,7%\n" +
+      
+      "## - Proyeksi Laba Rugi\n" +
+      "Pendapatan berlipat ~3,1x dari 2026F ke 2030F; laba bersih induk berlipat ~3,4x — margin bersih membaik seiring skala usaha.\n" +
+      
+      "## - Proyeksi Neraca & Leverage\n" +
+      "1. Total Aset naik dari Rp7.561 M (2026F) ke Rp23.370 M (2030F)\n" +
+      "2. Karena total debt diasumsikan flat (Rp2.547 M) sementara ekuitas terus tumbuh, **rasio D/E membaik signifikan:** 0,62x (2026F) → 0,31x (2030F)\n" +
+      "3. Net Debt/Equity turun tajam mendekati nol (0,21x → 0,01x) — proyeksi mengasumsikan RAJA jadi hampir net-debt-free di 2030F\n" +
+      
+      "## - Proyeksi Arus Kas\n" +
+      "1. Free Cash Flow (FCF) tumbuh dari Rp401 M (2026F) menjadi Rp1.241 M (2030F)\n" +
+      "2. FCF per share naik dari Rp95 ke Rp293\n" +
+      "3. Kas akhir periode naik bertahap dari Rp1.688 M ke Rp2.470 M\n" +
+      
+      "## - Rasio Profitabilitas & Valuasi Fundamental\n" +
+      "1. ROE meningkat tajam: 18,4% (2026F) → 30,6% (2030F) — didorong oleh operating leverage + financial leverage yang meningkat (1,85x → 2,80x) meski D/E membaik (karena aset tumbuh lebih cepat dari ekuitas)\n" +
+      "2. ROA juga naik stabil: 9,9% → 10,9%\n" +
+      "3. Book Value per Share naik dari Rp965 (2026F) ke Rp1.973 (2030F)\n",
+    forecastFile: "/public/files/PT Rukun Raharja Tbk (RAJA)/(Revision)_RAJA_Forecast.xlsx", // "/files/forecast.xlsx" atau "/files/forecast.pdf"
 
     valuation:
       "Kami mengeluarkan rekomendasi **BUY** untuk **RAJA** berdasarkan analisis valuasi yang ketat menggunakan empat pendekatan berbeda: DCF, **relative valuation**, DDM, dan **sum of the parts**. " +
