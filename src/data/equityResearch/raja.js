@@ -9,8 +9,8 @@ const RAJA = {
     targetPrice: "IDR 8.000",
     recommendation: "BUY",
 
-    reportFile: "/public/files/raja/RAJA_Report.pdf",
-    reportStatementFile: "/public/files/raja/RAJA_Financial_Statement_and_Valuation.xlsx",
+    reportFile: "/files/raja/RAJA_Report.pdf",
+    reportStatementFile: "/files/raja/RAJA_Financial_Statement_and_Valuation.xlsx",
 
     investmentThesis:
       "RAJA memiliki potensi kenaikan harga saham yang menarik didukung oleh ekspansi jaringan gas dan proyek baru, " +
@@ -58,7 +58,7 @@ const RAJA = {
       "2. Ada kontribusi laba dari Entitas Asosiasi yang signifikan di 2025 (Rp325 M), turut mendorong Laba Sebelum Pajak.\n",
     // Taruh file Excel/PDF Income Statement di public/files/, lalu isi path-nya di sini.
     // Contoh: incomeStatementFile: "/files/income-statement.xlsx",
-    incomeStatementFile: "/public/files/raja/RAJA_Income_Statement.xlsx", // "/files/income-statement.xlsx" atau "/files/income-statement.pdf"
+    incomeStatementFile: "/files/raja/RAJA_Income_Statement.xlsx", // "/files/income-statement.xlsx" atau "/files/income-statement.pdf"
 
     balanceSheet:
       "## - Pertumbuhan Neraca\n" +
@@ -78,7 +78,7 @@ const RAJA = {
       "2. Saldo laba tumbuh stabil (Rp1.704 M → Rp1.858 M), mencerminkan profitabilitas yang konsisten.\n" +
       "3. 'Ekuitas Lainnya' melonjak drastis dari Rp89 M (2024) ke Rp985 M (2025) — ini item non-standar yang perlu dicek lebih lanjut (kemungkinan revaluasi aset, translasi mata uang, atau instrumen ekuitas baru), karena kontribusinya besar terhadap kenaikan ekuitas total.\n" +
       "4. Kepentingan Non-Pengendali (NCI) juga naik signifikan (Rp432 M → Rp716 M), sejalan dengan konsolidasi anak usaha.\n",
-    balanceSheetFile: "/public/files/raja/RAJA_Balance_Sheet.xlsx", // "/files/balance-sheet.xlsx" atau "/files/balance-sheet.pdf"
+    balanceSheetFile: "/files/raja/RAJA_Balance_Sheet.xlsx", // "/files/balance-sheet.xlsx" atau "/files/balance-sheet.pdf"
 
     cashFlow:
       "## - Arus Kas Operasi (CFO)\n" +
@@ -102,7 +102,7 @@ const RAJA = {
       "3. Diimbangi pembayaran dividen -Rp251 M (ke pemegang saham) dan -Rp59 M (ke NCI anak usaha)\n" +
 
       "Pembayaran dividen naik signifikan dari tahun ke tahun (-Rp69 M di 2023 → -Rp162 M di 2024 → -Rp251 M di 2025), menandakan komitmen dividen yang meningkat seiring pertumbuhan laba.\n",
-    cashFlowFile: "/public/files/raja/RAJA_Cash_Flow.xlsx", // "/files/cash-flow.xlsx" atau "/files/cash-flow.pdf"
+    cashFlowFile: "/files/raja/RAJA_Cash_Flow.xlsx", // "/files/cash-flow.xlsx" atau "/files/cash-flow.pdf"
 
     forecast:
       "## - Asumsi Kunci\n" +
@@ -130,7 +130,7 @@ const RAJA = {
       "1. ROE meningkat tajam: 18,4% (2026F) → 30,6% (2030F) — didorong oleh operating leverage + financial leverage yang meningkat (1,85x → 2,80x) meski D/E membaik (karena aset tumbuh lebih cepat dari ekuitas)\n" +
       "2. ROA juga naik stabil: 9,9% → 10,9%\n" +
       "3. Book Value per Share naik dari Rp965 (2026F) ke Rp1.973 (2030F)\n",
-    forecastFile: "/public/files/raja/RAJA_Forecast.xlsx", // "/files/forecast.xlsx" atau "/files/forecast.pdf"
+    forecastFile: "/files/raja/RAJA_Forecast.xlsx", // "/files/forecast.xlsx" atau "/files/forecast.pdf"
 
     valuation:
       "Kami mengeluarkan rekomendasi **BUY** untuk **RAJA** berdasarkan analisis valuasi yang ketat menggunakan empat pendekatan berbeda: DCF, **relative valuation**, DDM, dan **sum of the parts**. " +
