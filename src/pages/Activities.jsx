@@ -1,8 +1,47 @@
 import React from 'react';
-import { Users, ArrowRight, ImageIcon } from 'lucide-react';
+import { Users, ArrowRight, ImageIcon, Crown, Star, Clock } from 'lucide-react';
 import { ACTIVITIES } from '../data/portfolioData';
+import { ORGANIZATION_ROSTER } from '../data/organizationRoster';
 import Reveal from '../components/Reveal';
 import LazyImage from '../components/LazyImage';
+
+// Classifies a role string into a visual tone so the roster reads at a glance:
+// leadership roles get a warm gold gradient, coordination roles a blue gradient,
+// and general membership a teal gradient — every icon stays vivid, none go flat/grey.
+function getRoleMeta(role) {
+  const r = (role || '').toLowerCase();
+  if (/chair|head|president|founder|ketua/.test(r)) {
+    return {
+      Icon: Crown,
+      iconColor: '#241A05',
+      gradient: 'linear-gradient(135deg, #FDE68A, #F59E0B)',
+      glow: 'rgba(245, 158, 11, 0.35)',
+      badgeColor: '#F59E0B',
+      badgeBg: 'rgba(245, 158, 11, 0.14)',
+      badgeBorder: 'rgba(245, 158, 11, 0.35)'
+    };
+  }
+  if (/lead|coordinator|manager|committee|activist/.test(r)) {
+    return {
+      Icon: Star,
+      iconColor: '#FFFFFF',
+      gradient: 'linear-gradient(135deg, #93A9FF, #5B7FE0)',
+      glow: 'rgba(124, 158, 255, 0.4)',
+      badgeColor: 'var(--accent-blue)',
+      badgeBg: 'rgba(124, 158, 255, 0.14)',
+      badgeBorder: 'rgba(124, 158, 255, 0.35)'
+    };
+  }
+  return {
+    Icon: Users,
+    iconColor: '#062E29',
+    gradient: 'linear-gradient(135deg, #99F6E4, #34D399)',
+    glow: 'rgba(94, 234, 212, 0.4)',
+    badgeColor: 'var(--accent-teal)',
+    badgeBg: 'rgba(94, 234, 212, 0.14)',
+    badgeBorder: 'rgba(94, 234, 212, 0.35)'
+  };
+}
 
 // Re-exported so ActivityDetail.jsx can look up an activity by id,
 // same pattern used in myportofolio's Activities.jsx / ActivityDetail.jsx
@@ -23,6 +62,103 @@ export default function Activities({ setCurrentPage, setSelectedActivityId }) {
         <p style={{ color: 'var(--text-secondary)', textAlign: 'center', maxWidth: '560px', margin: '0 auto 48px', fontSize: '0.98rem', fontFamily: 'var(--font-sans)' }}>
           Highlighting my leadership roles, financial operations, competition involvement, and community contributions.
         </p>
+
+        <Reveal>
+          <div
+            className="glass-card"
+            style={{
+              marginBottom: '48px',
+              overflow: 'hidden',
+              background: 'linear-gradient(180deg, rgba(124,158,255,0.03), rgba(255,255,255,0.01))'
+            }}
+          >
+            <div style={{ padding: '22px 26px 18px', borderBottom: '1px solid var(--glass-border)' }}>
+              <p
+                style={{
+                  fontFamily: 'var(--font-heading)',
+                  fontSize: '0.72rem',
+                  letterSpacing: '0.12em',
+                  color: 'var(--accent-teal)',
+                  marginBottom: '4px'
+                }}
+              >
+                ORGANIZATION ROSTER
+              </p>
+              <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-sans)' }}>
+                Where I'm involved, how long, and in what capacity.
+              </p>
+            </div>
+
+            {ORGANIZATION_ROSTER.map((entry, idx) => {
+              const { Icon, iconColor, gradient, glow, badgeColor, badgeBg, badgeBorder } = getRoleMeta(entry.role);
+              return (
+                <div
+                  key={idx}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '16px',
+                    padding: '18px 26px',
+                    borderBottom: idx === ORGANIZATION_ROSTER.length - 1 ? 'none' : '1px solid var(--glass-border)',
+                    transition: 'background 0.2s ease'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
+                >
+                  {/* Role icon */}
+                  <div
+                    style={{
+                      flexShrink: 0,
+                      width: '40px',
+                      height: '40px',
+                      borderRadius: '12px',
+                      background: gradient,
+                      boxShadow: `0 4px 14px ${glow}`,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: iconColor
+                    }}
+                  >
+                    <Icon size={18} strokeWidth={2.4} fill={iconColor} />
+                  </div>
+
+                  {/* Org name + duration */}
+                  <div style={{ flexGrow: 1, minWidth: 0 }}>
+                    <p style={{ fontSize: '0.96rem', color: 'var(--text-primary)', fontWeight: '600', whiteSpace: 'pre-line', marginBottom: '3px' }}>
+                      {entry.org}
+                    </p>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                      <Clock size={12} color="var(--text-secondary)" />
+                      <span style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-heading)', letterSpacing: '0.01em' }}>
+                        {entry.period}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Role badge */}
+                  <span
+                    style={{
+                      flexShrink: 0,
+                      fontSize: '0.78rem',
+                      fontWeight: '600',
+                      padding: '6px 14px',
+                      borderRadius: '999px',
+                      background: badgeBg,
+                      color: badgeColor,
+                      border: `1px solid ${badgeBorder}`,
+                      whiteSpace: 'pre-line',
+                      textAlign: 'right',
+                      maxWidth: '48%'
+                    }}
+                  >
+                    {entry.role}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+        </Reveal>
 
         <div className="grid-responsive" style={{ gap: '28px' }}>
           {activitiesData.map((activity, idx) => (
