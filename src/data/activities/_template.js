@@ -6,6 +6,7 @@ const ACTIVITY_NAME = {
   period: "Jan 2026 – Feb 2026",
   org: "Nama Organisasi / Event",
   role: "Peran kamu di sana",
+  logo: "", // (Opsional) path logo organisasi, contoh: "/images/logo-organisasi.png" — kosongkan untuk pakai ikon default
   images: [
     "/images/foto1.jpg",
   ], // contoh: ["/images/foto1.jpg", "/images/foto2.jpg"] — kosongkan array untuk pakai placeholder

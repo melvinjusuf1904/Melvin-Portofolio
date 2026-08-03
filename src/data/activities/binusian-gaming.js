@@ -4,6 +4,7 @@ const BINUSIAN_GAMING = {
     period: "Sep 2025 – Present",
     org: "Binusian Gaming",
     role: "Activist & Head Committee",
+    logo: "/images/gaming.jpeg", // isi path logo organisasi, contoh: "/images/binusian-gaming-logo.png"
     images: [
       "/images/MelvinCommittee.pdf",
     ], // contoh: ["/images/foto1.jpg", "/images/foto2.jpg"] — kosongkan array untuk pakai placeholder

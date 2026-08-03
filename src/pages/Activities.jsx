@@ -82,10 +82,10 @@ export default function Activities({ setCurrentPage, setSelectedActivityId }) {
                   marginBottom: '4px'
                 }}
               >
-                ORGANIZATION ROSTER
+                ORGANIZATION MEMBERSHIPS
               </p>
               <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', fontFamily: 'var(--font-sans)' }}>
-                Where I'm involved, how long, and in what capacity.
+                Organizations where I actively participate and contribute.
               </p>
             </div>
 
@@ -105,23 +105,43 @@ export default function Activities({ setCurrentPage, setSelectedActivityId }) {
                   onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.02)'; }}
                   onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; }}
                 >
-                  {/* Role icon */}
-                  <div
-                    style={{
-                      flexShrink: 0,
-                      width: '40px',
-                      height: '40px',
-                      borderRadius: '12px',
-                      background: gradient,
-                      boxShadow: `0 4px 14px ${glow}`,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: iconColor
-                    }}
-                  >
-                    <Icon size={18} strokeWidth={2.4} fill={iconColor} />
-                  </div>
+                  {/* Org logo (custom image) or role icon fallback */}
+                  {entry.logo ? (
+                    <div
+                      style={{
+                        flexShrink: 0,
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: '12px',
+                        overflow: 'hidden',
+                        border: '1px solid var(--glass-border)',
+                        background: '#fff'
+                      }}
+                    >
+                      <img
+                        src={entry.logo}
+                        alt={entry.org}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      style={{
+                        flexShrink: 0,
+                        width: '40px',
+                        height: '40px',
+                        borderRadius: '12px',
+                        background: gradient,
+                        boxShadow: `0 4px 14px ${glow}`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: iconColor
+                      }}
+                    >
+                      <Icon size={18} strokeWidth={2.4} fill={iconColor} />
+                    </div>
+                  )}
 
                   {/* Org name + duration */}
                   <div style={{ flexGrow: 1, minWidth: 0 }}>
@@ -201,20 +221,41 @@ export default function Activities({ setCurrentPage, setSelectedActivityId }) {
               {/* Details */}
               <div style={{ padding: '20px 24px 24px', display: 'flex', flexDirection: 'column', flexGrow: 1, textAlign: 'left' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                  <div
-                    style={{
-                      width: '34px',
-                      height: '34px',
-                      borderRadius: '8px',
-                      background: 'rgba(124, 158, 255, 0.10)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'var(--accent-blue)'
-                    }}
-                  >
-                    <Users size={18} />
-                  </div>
+                  {activity.logo ? (
+                    <div
+                      style={{
+                        flexShrink: 0,
+                        width: '34px',
+                        height: '34px',
+                        borderRadius: '8px',
+                        overflow: 'hidden',
+                        border: '1px solid var(--glass-border)',
+                        background: '#fff'
+                      }}
+                    >
+                      <img
+                        src={activity.logo}
+                        alt={activity.org}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      style={{
+                        flexShrink: 0,
+                        width: '34px',
+                        height: '34px',
+                        borderRadius: '8px',
+                        background: 'rgba(124, 158, 255, 0.10)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'var(--accent-blue)'
+                      }}
+                    >
+                      <Users size={18} />
+                    </div>
+                  )}
                   <h3 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', whiteSpace: 'pre-line' }}>{activity.org}</h3>
                 </div>
 
