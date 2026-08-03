@@ -4,7 +4,7 @@ const BORNEO_ONLINE_TRADING = {
     period: "Apr 2026 – May 2026",
     org: "Borneo Online Trading Competition",
     role: "Participant / Top 10 Finalist",
-    logo: "", // isi path logo organisasi, contoh: "/images/borneo-logo.png"
+    logo: "/images/borneologo.jpeg", // isi path logo organisasi, contoh: "/images/borneo-logo.png"
     images: [
       "/images/BOTCcert.jpeg",
       "/images/borneo.jpeg",

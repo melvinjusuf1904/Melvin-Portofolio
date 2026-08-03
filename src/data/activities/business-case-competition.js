@@ -4,7 +4,7 @@ const BUSINESS_CASE_COMPETITION = {
     period: "Apr 2026 – May 2026",
     org: "Business Case Competition",
     role: "Participant / Finalist",
-    logo: "", // isi path logo organisasi, contoh: "/images/business-case-logo.png"
+    logo: "/images/caseconnectlogo.jpeg", // isi path logo organisasi, contoh: "/images/business-case-logo.png"
     images: [
       "/images/CCcert.png",
       "/images/caseconnect1.jpeg",
