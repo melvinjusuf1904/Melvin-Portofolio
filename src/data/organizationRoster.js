@@ -13,5 +13,17 @@ export const ORGANIZATION_ROSTER = [
     role: "Member",
     logo: "/images/nippon.jpeg",
   },
+  {
+    org: "Volley - Binus University",
+    period: "Sep 2025 – Feb 2026",
+    role: "Member",
+    logo: "/images/volley.png",
+  },
+  {
+    org: "Badminton - Binus University",
+    period: "Sep 2025 – Present",
+    role: "Member",
+    logo: "/images/badminton.png",
+  },
   // Tambahkan organisasi baru di sini
 ];
