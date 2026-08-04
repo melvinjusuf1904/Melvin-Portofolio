@@ -21,7 +21,7 @@ export const ORGANIZATION_ROSTER = [
   },
   {
     org: "Badminton - Binus University",
-    period: "Sep 2025 – Present",
+    period: "Sep 2025 – Feb 2026",
     role: "Member",
     logo: "/images/badminton.png",
   },
