@@ -8,6 +8,12 @@
 
 export const ORGANIZATION_ROSTER = [
   {
+    org: "BINUS Blockchain and Crypto Club",
+    period: "Aug 2026 – Present",
+    role: "Member",
+    logo: "/images/bbcc.png",
+  },
+  {
     org: "Nippon Club - Binus University",
     period: "Sep 2025 – Present",
     role: "Member",
