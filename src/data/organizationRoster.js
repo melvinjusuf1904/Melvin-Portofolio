@@ -8,6 +8,12 @@
 
 export const ORGANIZATION_ROSTER = [
   {
+    org: "BINUS Finance Club",
+    period: "Aug 2026 – Present",
+    role: "Member",
+    logo: "/images/bnfc.jpg",
+  },
+  {
     org: "BINUS Blockchain and Crypto Club",
     period: "Aug 2026 – Present",
     role: "Member",
@@ -15,7 +21,7 @@ export const ORGANIZATION_ROSTER = [
   },
   {
     org: "Nippon Club - Binus University",
-    period: "Sep 2025 – Present",
+    period: "Sep 2025 – Feb 2026",
     role: "Member",
     logo: "/images/nippon.jpeg",
   },
